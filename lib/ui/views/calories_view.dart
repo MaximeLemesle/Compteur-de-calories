@@ -15,22 +15,14 @@ class _CalorieViewState extends State<CalorieView> {
     // [ nutrimentsName, nutrimentsColor, nutrimentsProgress ]
     ["Calories", Colors.pink, 0.45],
     ["Protéines", Colors.blue, 0.25],
-    ["Lipides", Colors.yellow, 0.2],
+    ["Lipides", Colors.yellow[700], 0.2],
     ["Autres", Colors.purple, 0.1],
-  ];
-
-  /// Liste des repas
-  List repas = [
-    // [ nomRepas ]
-    ["Petit Déjeuner"],
-    ["Déjeuner"],
-    ["Gouter"],
-    ["Diner"],
   ];
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         /// Affichage date du jour
         Container(
@@ -74,6 +66,7 @@ class _CalorieViewState extends State<CalorieView> {
                 ],
               ),
               progressColor: Colors.green,
+              backgroundColor: Colors.green.withOpacity(0.1),
             ),
           ),
         ),
@@ -83,53 +76,52 @@ class _CalorieViewState extends State<CalorieView> {
         ),
 
         /// Affichage des macronutriments
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: Colors.grey[200],
+        GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          padding: const EdgeInsets.all(8),
+          itemCount: nutriments.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 2.2 / 1,
           ),
-          child: GridView.builder(
-            shrinkWrap: true,
-            padding: const EdgeInsets.all(8),
-            itemCount: nutriments.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 2 / 1,
-            ),
-            itemBuilder: (BuildContext context, int index) {
-              return NutrimentsBox(
-                nutrimentsName: nutriments[index][0] as String,
-                nutrimentsColor: nutriments[index][1] as Color,
-                nutrimentsProgress: nutriments[index][2] as double,
-              );
-            },
-          ),
+          itemBuilder: (BuildContext context, int index) {
+            return NutrimentsBox(
+              nutrimentsName: nutriments[index][0] as String,
+              nutrimentsColor: nutriments[index][1] as Color,
+              nutrimentsProgress: nutriments[index][2] as double,
+            );
+          },
         ),
 
         const SizedBox(
-          height: 16,
+          height: 32,
         ),
 
-        /// Affichage des repas
-        Container(
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: Colors.blue[100],
-          ),
-          child: ListView.builder(
-            itemCount: repas.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Column(
-                children: [
-                  Text(
-                    repas[index][0],
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+        /// Ajout d'un repas
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 200,
+              child: TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white),
+                child: const SizedBox(
+                  child: Text(
+                    'Ajouter un repas',
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                ],
-              );
-            },
-          ),
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );

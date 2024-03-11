@@ -16,10 +16,10 @@ class NutrimentsBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(4.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          border: Border.all(color: const Color(0xFFBDBDBD)),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Column(
@@ -45,11 +45,11 @@ class NutrimentsBox extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              padding: const EdgeInsets.symmetric(vertical: 12.0),
               child: LinearPercentIndicator(
-                lineHeight: 8.0,
+                lineHeight: 10.0,
                 percent: nutrimentsProgress,
-                backgroundColor: Colors.grey[200],
+                backgroundColor: nutrimentsColor.withOpacity(0.1),
                 progressColor: nutrimentsColor,
                 animation: true,
                 animationDuration: 1000,

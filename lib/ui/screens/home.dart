@@ -1,8 +1,7 @@
-import 'package:compteur_cal/ui/views/aliments_view.dart';
+import 'package:compteur_cal/ui/views/repas_view.dart';
 import 'package:compteur_cal/ui/views/calories_view.dart';
 import 'package:compteur_cal/ui/views/recettes_view.dart';
 import 'package:flutter/material.dart';
-
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -22,7 +21,7 @@ class _HomeState extends State<Home> {
 
   static const List<Widget> _viewsOptions = <Widget>[
     CalorieView(),
-    AlimentView(),
+    RepasView(),
     RecetteView(),
   ];
 
@@ -36,10 +35,12 @@ class _HomeState extends State<Home> {
       ),
 
       // --- Content --- //
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Center(
-          child: _viewsOptions.elementAt(_selectedIndex),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Center(
+            child: _viewsOptions.elementAt(_selectedIndex),
+          ),
         ),
       ),
 
@@ -52,7 +53,7 @@ class _HomeState extends State<Home> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.eco_outlined),
-            label: 'Aliments',
+            label: 'Repas',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.restaurant_menu),
@@ -64,4 +65,4 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-} 
+}
