@@ -3,6 +3,7 @@ import 'package:compteur_cal/ui/views/calories_view.dart';
 import 'package:compteur_cal/ui/views/recettes_view.dart';
 import 'package:flutter/material.dart';
 
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -63,4 +64,4 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-}
+} 
