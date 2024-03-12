@@ -109,7 +109,7 @@ class _CalorieViewState extends State<CalorieView> {
                 style: TextButton.styleFrom(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4),
+                      borderRadius: BorderRadius.circular(8),
                     ),
                     backgroundColor: Colors.green,
                     foregroundColor: Colors.white),

@@ -45,7 +45,7 @@ class NutrimentsBox extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12.0),
+              padding: const EdgeInsets.symmetric(vertical: 12),
               child: LinearPercentIndicator(
                 lineHeight: 10.0,
                 percent: nutrimentsProgress,
@@ -53,7 +53,7 @@ class NutrimentsBox extends StatelessWidget {
                 progressColor: nutrimentsColor,
                 animation: true,
                 animationDuration: 1000,
-                barRadius: const Radius.circular(8.0),
+                barRadius: const Radius.circular(8),
               ),
             ),
           ],
