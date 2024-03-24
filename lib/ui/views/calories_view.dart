@@ -99,30 +99,38 @@ class _CalorieViewState extends State<CalorieView> {
         ),
 
         /// Ajout d'un repas
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 200,
-              child: TextButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
+        GestureDetector(
+          onTap: () async {
+            await Navigator.pushNamed(context, '/add_meal');
+          },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 200,
+                child: TextButton(
+                  onPressed: () async {
+                    await Navigator.pushNamed(context, '/add_meal');
+                  },
+                  style: TextButton.styleFrom(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                     backgroundColor: Colors.green,
-                    foregroundColor: Colors.white),
-                child: const SizedBox(
-                  child: Text(
-                    'Ajouter un repas',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    foregroundColor: Colors.white,
+                  ),
+                  child: const SizedBox(
+                    child: Text(
+                      'Ajouter un repas',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
+        )
       ],
     );
   }
