@@ -1,16 +1,30 @@
-# Compteur-de-calories
+# Application Flutter de suivi des calories
 
-A new Flutter project.
+## 🪧 À propos
 
-## Getting Started
+Création d'une application pour suivre les calories consommées dans la journée, avec le Framework Flutter du langage Dart.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## 📚 Table des matières
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- 🪧 [À propos](#à-propos)
+- 🚀 [Installation](#installation)
+- 🤝 [Contribution](#contribution)
+- 🛠️ [Langages & Frameworks](#langages--frameworks)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## 🚀 Installation
+
+🚧 Pas de stress ! Le projet est encore en développement. Attendez-vous à quelques petits dégâts de chantier. Mais comme on dit, Rome ne s'est pas construite en un jour !
+
+
+## 🤝 Contribution
+
+Réaliser par [*Tom*](https://github.com/TomCartier) et [*Maxime*](https://github.com/MaximeLemesle)
+
+
+## 🛠️ Langages & Frameworks
+
+<img src="https://img.shields.io/badge/Framework-Flutter-blue?style=flat&logo=flutter&logoColor=white" />
+<img src="https://img.shields.io/badge/Code-Dart-336791?style=flat&logo=dart&logoColor=white" />
+
