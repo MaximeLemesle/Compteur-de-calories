@@ -67,12 +67,15 @@ class _AddMealState extends State<AddMeal> {
                     ),
                     leading: Image.network(
                       'https://img.spoonacular.com/ingredients_100x100/${_aliments[index].image}',
-                      width: 100,
                     ),
                     trailing: const Icon(Icons.arrow_forward_ios),
-                    onTap: () async{
+                    onTap: () async {
                       /// Aller sur une page avec les infos complètes du produits
-                      await Navigator.pushNamed(context, '/meal_details');
+                      await Navigator.pushNamed(
+                        context,
+                        '/meal_details',
+                        arguments: _aliments[index],
+                      );
                     },
                   );
                 },

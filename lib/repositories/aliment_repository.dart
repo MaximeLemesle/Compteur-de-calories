@@ -21,8 +21,6 @@ class AlimentRepository {
         );
         aliments.add(aliment);
       }
-      print(aliments);
-
       return aliments;
     } else {
       throw Exception('Failed to load aliments');
