@@ -11,7 +11,8 @@ class MealDetails extends StatefulWidget {
 class _MealDetailsState extends State<MealDetails> {
   @override
   Widget build(BuildContext context) {
-    final Aliment aliment = ModalRoute.of(context)!.settings.arguments as Aliment;
+    final Aliment aliment =
+        ModalRoute.of(context)!.settings.arguments as Aliment;
 
     return Scaffold(
       appBar: AppBar(
