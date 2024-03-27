@@ -1,5 +1,6 @@
 import 'package:compteur_cal/ui/screens/add_meal.dart';
 import 'package:compteur_cal/ui/screens/home.dart';
+import 'package:compteur_cal/ui/screens/meal_details.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context) => const Home(),
         '/add_meal': (context) => const AddMeal(),
+        '/meal_details': (context) => const MealDetails(),
       },
       initialRoute: '/home',
     );

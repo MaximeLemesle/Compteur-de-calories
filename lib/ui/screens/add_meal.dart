@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:compteur_cal/models/aliment.dart';
 import 'package:compteur_cal/repositories/aliment_repository.dart';
 import 'package:flutter/material.dart';
@@ -66,10 +65,14 @@ class _AddMealState extends State<AddMeal> {
                     title: Text(
                       _aliments[index].name,
                     ),
-                    subtitle: Text( _aliments[index].image),
-                    leading: Image.network('https://img.spoonacular.com/ingredients_100x100/${_aliments[index].image}'),
-                    onTap: () {
-                      Navigator.pop(context, _aliments[index]);
+                    leading: Image.network(
+                      'https://img.spoonacular.com/ingredients_100x100/${_aliments[index].image}',
+                      width: 100,
+                    ),
+                    trailing: const Icon(Icons.arrow_forward_ios),
+                    onTap: () async{
+                      /// Aller sur une page avec les infos complètes du produits
+                      await Navigator.pushNamed(context, '/meal_details');
                     },
                   );
                 },
