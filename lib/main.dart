@@ -1,6 +1,7 @@
 import 'package:compteur_cal/ui/screens/add_meal.dart';
 import 'package:compteur_cal/ui/screens/home.dart';
 import 'package:compteur_cal/ui/screens/meal_details.dart';
+import 'package:compteur_cal/ui/utils/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,9 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Calculateur de calories',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
+      themeMode: ThemeMode.system,
+      theme: lightMode,
+      darkTheme: darkMode,
       routes: {
         '/home': (context) => const Home(),
         '/add_meal': (context) => const AddMeal(),

@@ -31,7 +31,7 @@ class _HomeState extends State<Home> {
       // --- AppBar --- //
       appBar: AppBar(
         title: const Text('Calculateur de calories'),
-        backgroundColor: const Color(0xFF16B576),
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
 
       // --- Content --- //
@@ -62,6 +62,7 @@ class _HomeState extends State<Home> {
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
+        selectedItemColor: Theme.of(context).colorScheme.primary
       ),
     );
   }

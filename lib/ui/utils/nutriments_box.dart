@@ -49,7 +49,7 @@ class NutrimentsBox extends StatelessWidget {
               child: LinearPercentIndicator(
                 lineHeight: 10.0,
                 percent: nutrimentsProgress,
-                backgroundColor: nutrimentsColor.withOpacity(0.1),
+                backgroundColor: nutrimentsColor.withOpacity(0.2),
                 progressColor: nutrimentsColor,
                 animation: true,
                 animationDuration: 1000,

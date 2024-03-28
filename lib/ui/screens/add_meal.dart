@@ -20,7 +20,7 @@ class _AddMealState extends State<AddMeal> {
       // --- AppBar --- //
       appBar: AppBar(
         title: const Text('Ajouter un repas'),
-        backgroundColor: const Color(0xFF16B576),
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: Container(
         margin: const EdgeInsets.all(10.0),
@@ -29,9 +29,9 @@ class _AddMealState extends State<AddMeal> {
             // --- Recherche des aliments --- //
             TextField(
               decoration: InputDecoration(
-                prefixIcon: Icon(
-                  Icons.restaurant_menu,
-                  color: Theme.of(context).primaryColor,
+                suffixIcon: Icon(
+                  Icons.search,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 labelText: 'Rechercher un aliment',
               ),

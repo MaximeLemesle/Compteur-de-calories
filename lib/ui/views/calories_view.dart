@@ -1,4 +1,5 @@
 import 'package:compteur_cal/ui/utils/nutriments_box.dart';
+import 'package:compteur_cal/ui/utils/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
@@ -13,10 +14,10 @@ class _CalorieViewState extends State<CalorieView> {
   /// Liste des macronutriments
   List<dynamic> nutriments = [
     // [ nutrimentsName, nutrimentsColor, nutrimentsProgress ]
-    ["Calories", Colors.pink, 0.45],
-    ["Protéines", Colors.blue, 0.25],
-    ["Lipides", Colors.yellow[700], 0.2],
-    ["Autres", Colors.purple, 0.1],
+    ["Calories", AppTheme.pinkRose, 0.45],
+    ["Protéines", AppTheme.skyBlue, 0.25],
+    ["Lipides", AppTheme.mustardYellow, 0.2],
+    ["Autres", AppTheme.blueViolet, 0.1],
   ];
 
   @override
@@ -65,8 +66,8 @@ class _CalorieViewState extends State<CalorieView> {
                   ),
                 ],
               ),
-              progressColor: Colors.green,
-              backgroundColor: Colors.green.withOpacity(0.1),
+              progressColor: Theme.of(context).colorScheme.primary,
+              backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.2),
             ),
           ),
         ),
@@ -117,8 +118,8 @@ class _CalorieViewState extends State<CalorieView> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    backgroundColor: Colors.green,
-                    foregroundColor: Colors.white,
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    foregroundColor: Theme.of(context).colorScheme.onPrimary,
                   ),
                   child: const SizedBox(
                     child: Text(

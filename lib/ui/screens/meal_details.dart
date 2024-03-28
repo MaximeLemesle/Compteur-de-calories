@@ -17,7 +17,7 @@ class _MealDetailsState extends State<MealDetails> {
     return Scaffold(
       appBar: AppBar(
         title: Text(aliment.name),
-        backgroundColor: const Color(0xFF16B576),
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
