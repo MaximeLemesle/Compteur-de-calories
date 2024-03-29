@@ -19,7 +19,9 @@ class NutrimentsBox extends StatelessWidget {
       padding: const EdgeInsets.all(4.0),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: const Color(0xFFBDBDBD)),
+          border: Border.all(
+            color: Theme.of(context).colorScheme.surfaceVariant,
+          ),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Column(

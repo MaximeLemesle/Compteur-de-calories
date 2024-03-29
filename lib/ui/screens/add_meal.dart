@@ -61,19 +61,35 @@ class _AddMealState extends State<AddMeal> {
               child: ListView.separated(
                 itemCount: _aliments.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return ListTile(
-                    title: Text(
-                      _aliments[index].name,
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListTile(
+                      leading: Image.network(
+                        'https://img.spoonacular.com/ingredients_100x100/${_aliments[index].image}',
+                        width: 60,
+                        fit: BoxFit.fitHeight,
+                      ),
+                      title: Text(
+                        _aliments[index].name.capitalize(),
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ),
+                      subtitle: const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text('calories'),
+                          Text('protein'),
+                          Text('lipides'),
+                        ],
+                      ),
+                      onTap: () async {
+                        /// Aller sur une page avec les infos complètes du produits
+                        await Navigator.pushNamed(
+                          context,
+                          '/meal_details',
+                          arguments: _aliments[index],
+                        );
+                      },
                     ),
-                    trailing: const Icon(Icons.arrow_forward_ios),
-                    onTap: () async {
-                      /// Aller sur une page avec les infos complètes du produits
-                      await Navigator.pushNamed(
-                        context,
-                        '/meal_details',
-                        arguments: _aliments[index],
-                      );
-                    },
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) {
@@ -85,5 +101,12 @@ class _AddMealState extends State<AddMeal> {
         ),
       ),
     );
+  }
+}
+
+/// Ajout d'une majuscule au début d'une chaine de caractère
+extension StringExtension on String {
+  String capitalize() {
+    return "${this[0].toUpperCase()}${substring(1)}";
   }
 }

@@ -16,6 +16,14 @@ ThemeData lightMode = ThemeData(
     onPrimary: Colors.white,
     background: Colors.grey.shade50,
     onBackground: Colors.grey.shade900,
+    surfaceVariant: Colors.grey.shade400,
+  ),
+    textTheme: TextTheme(
+    titleLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.grey.shade900),
+    titleMedium: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.grey.shade900),
+    titleSmall: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.grey.shade900),
+    bodyLarge: TextStyle(fontSize: 16, color: Colors.grey.shade900),
+    bodyMedium: TextStyle(fontSize: 14, color: Colors.grey.shade900),
   ),
 );
 
@@ -26,5 +34,13 @@ ThemeData darkMode = ThemeData(
     onPrimary: Colors.grey.shade900,
     background: Colors.grey.shade900,
     onBackground: Colors.grey.shade100,
+    surfaceVariant: Colors.grey.shade700,
+  ),
+  textTheme: TextTheme(
+    titleLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.grey.shade100),
+    titleMedium: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.grey.shade100),
+    titleSmall: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.grey.shade100),
+    bodyLarge: TextStyle(fontSize: 16, color: Colors.grey.shade100),
+    bodyMedium: TextStyle(fontSize: 14, color: Colors.grey.shade100),
   ),
 );
