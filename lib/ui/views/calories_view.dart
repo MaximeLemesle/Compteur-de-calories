@@ -51,23 +51,22 @@ class _CalorieViewState extends State<CalorieView> {
               animation: true,
               animationDuration: 1000,
               circularStrokeCap: CircularStrokeCap.round,
-              center: const Column(
+              center: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "1240",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                    ),
+                    style: Theme.of(context).textTheme.displayLarge,
                   ),
                   Text(
                     "Total kcal",
+                    style: Theme.of(context).textTheme.labelLarge,
                   ),
                 ],
               ),
               progressColor: Theme.of(context).colorScheme.primary,
-              backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+              backgroundColor:
+                  Theme.of(context).colorScheme.primary.withOpacity(0.2),
             ),
           ),
         ),

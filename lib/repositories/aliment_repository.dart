@@ -41,6 +41,7 @@ class AlimentRepository {
       final Aliment aliment = Aliment(
         id: json['id'],
         name: json['name'],
+        image: json['image'],
         // Ajoutez les autres propriétés de l'ingrédient que vous souhaitez récupérer
       );
 

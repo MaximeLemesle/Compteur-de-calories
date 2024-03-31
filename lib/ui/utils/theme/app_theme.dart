@@ -19,11 +19,22 @@ ThemeData lightMode = ThemeData(
     surfaceVariant: Colors.grey.shade400,
   ),
     textTheme: TextTheme(
-    titleLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.grey.shade900),
-    titleMedium: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.grey.shade900),
-    titleSmall: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.grey.shade900),
-    bodyLarge: TextStyle(fontSize: 16, color: Colors.grey.shade900),
-    bodyMedium: TextStyle(fontSize: 14, color: Colors.grey.shade900),
+    /// Titre
+    displayLarge: TextStyle(fontSize: 32, fontFamily: 'Dela Gothic One', color: Colors.grey.shade900, letterSpacing: .64,),
+    titleLarge: TextStyle(fontSize: 22, fontFamily: 'Dela Gothic One', color: Colors.grey.shade900, letterSpacing: .44,),
+    titleMedium: TextStyle(fontSize: 16, fontFamily: 'Dela Gothic One', color: Colors.grey.shade900, letterSpacing: .32,),
+    titleSmall: TextStyle(fontSize: 12, fontFamily: 'Dela Gothic One', color: Colors.grey.shade900, letterSpacing: .24,),
+
+    /// Sous-titre
+    labelLarge: TextStyle(fontSize: 18, fontFamily: 'Spline Sans Mono', color: Colors.grey.shade900),
+
+    /// Texte
+    bodyLarge: TextStyle(fontSize: 14, fontFamily: 'Spline Sans Mono', color: Colors.grey.shade900),
+    bodyMedium: TextStyle(fontSize: 10, fontFamily: 'Spline Sans Mono', color: Colors.grey.shade900),
+    bodySmall: TextStyle(fontSize: 8, fontFamily: 'Spline Sans Mono', color: Colors.grey.shade900),
+
+    /// Bouton
+    labelMedium: TextStyle(fontSize: 10, fontFamily: 'Dela Gothic One', color: Colors.grey.shade900, letterSpacing: .20,),
   ),
 );
 
