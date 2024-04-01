@@ -18,11 +18,9 @@ class NutrimentsBox extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(4.0),
       child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Theme.of(context).colorScheme.surfaceVariant,
-          ),
-          borderRadius: BorderRadius.circular(8),
+        decoration: ShapeDecoration(
+          color: Theme.of(context).colorScheme.surfaceVariant,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,12 +35,22 @@ class NutrimentsBox extends StatelessWidget {
                 children: [
                   Text(
                     nutrimentsName,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+                    style: Theme.of(context).textTheme.titleSmall,
                   ),
-                  Text(
-                    nutrimentsProgress.toString(),
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  )
+                  Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: '73',
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                        TextSpan(
+                          text: '/124',
+                          style: Theme.of(context).textTheme.labelMedium,
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

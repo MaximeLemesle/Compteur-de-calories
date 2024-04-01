@@ -20,8 +20,8 @@ class _HomeState extends State<Home> {
   }
 
   static const List<Widget> _viewsOptions = <Widget>[
-    CalorieView(),
     RepasView(),
+    CalorieView(),
     RecetteView(),
   ];
 
@@ -30,8 +30,11 @@ class _HomeState extends State<Home> {
     return Scaffold(
       // --- AppBar --- //
       appBar: AppBar(
-        title: const Text('Calculateur de calories'),
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        title: Text(
+          'Activité journalière',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
+        backgroundColor: Theme.of(context).colorScheme.background,
       ),
 
       // --- Content --- //
@@ -49,20 +52,22 @@ class _HomeState extends State<Home> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.data_saver_off),
+            label: 'Statistiques',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.coffee),
             label: 'Calories',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.eco_outlined),
+            icon: Icon(Icons.dining_outlined),
             label: 'Repas',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.restaurant_menu),
-            label: 'Recettes',
           ),
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        selectedItemColor: Theme.of(context).colorScheme.primary
+        selectedItemColor: Theme.of(context).colorScheme.primary,
+        selectedLabelStyle: Theme.of(context).textTheme.bodyMedium,
+        unselectedLabelStyle: Theme.of(context).textTheme.bodyMedium,
       ),
     );
   }

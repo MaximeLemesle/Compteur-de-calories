@@ -14,10 +14,10 @@ class _CalorieViewState extends State<CalorieView> {
   /// Liste des macronutriments
   List<dynamic> nutriments = [
     // [ nutrimentsName, nutrimentsColor, nutrimentsProgress ]
-    ["Calories", AppTheme.pinkRose, 0.45],
-    ["Protéines", AppTheme.skyBlue, 0.25],
-    ["Lipides", AppTheme.mustardYellow, 0.2],
-    ["Autres", AppTheme.blueViolet, 0.1],
+    ["Calories", AppTheme.pinkRose, .75],
+    ["Protéines", AppTheme.skyBlue, .50],
+    ["Lipides", AppTheme.mustardYellow, .10],
+    ["Autres", AppTheme.blueViolet, .20],
   ];
 
   @override
@@ -28,12 +28,12 @@ class _CalorieViewState extends State<CalorieView> {
         /// Affichage date du jour
         Container(
           padding: const EdgeInsets.all(24),
-          child: const Row(
+          child: Row(
             children: [
               Expanded(
                 child: Text(
-                  'Ven. 23 Février',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  '30 mars',
+                  style: Theme.of(context).textTheme.labelMedium,
                 ),
               ),
             ],
@@ -41,38 +41,35 @@ class _CalorieViewState extends State<CalorieView> {
         ),
 
         /// Affichage calories
-        Container(
-          padding: const EdgeInsets.all(24),
-          child: Center(
-            child: CircularPercentIndicator(
-              radius: 90.0,
-              lineWidth: 16.0,
-              percent: 0.6,
-              animation: true,
-              animationDuration: 1000,
-              circularStrokeCap: CircularStrokeCap.round,
-              center: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "1240",
-                    style: Theme.of(context).textTheme.displayLarge,
-                  ),
-                  Text(
-                    "Total kcal",
-                    style: Theme.of(context).textTheme.labelLarge,
-                  ),
-                ],
-              ),
-              progressColor: Theme.of(context).colorScheme.primary,
-              backgroundColor:
-                  Theme.of(context).colorScheme.primary.withOpacity(0.2),
+        Center(
+          child: CircularPercentIndicator(
+            radius: 100.0,
+            lineWidth: 20.0,
+            percent: 0.6,
+            animation: true,
+            animationDuration: 1000,
+            circularStrokeCap: CircularStrokeCap.round,
+            center: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "1240",
+                  style: Theme.of(context).textTheme.displayLarge,
+                ),
+                Text(
+                  "Total kcal",
+                  style: Theme.of(context).textTheme.labelLarge,
+                ),
+              ],
             ),
+            progressColor: Theme.of(context).colorScheme.primary,
+            backgroundColor:
+                Theme.of(context).colorScheme.primary.withOpacity(0.2),
           ),
         ),
 
         const SizedBox(
-          height: 16,
+          height: 20,
         ),
 
         /// Affichage des macronutriments
@@ -83,7 +80,7 @@ class _CalorieViewState extends State<CalorieView> {
           itemCount: nutriments.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            childAspectRatio: 2.2 / 1,
+            childAspectRatio: 2.5 / 1,
           ),
           itemBuilder: (BuildContext context, int index) {
             return NutrimentsBox(
@@ -95,7 +92,7 @@ class _CalorieViewState extends State<CalorieView> {
         ),
 
         const SizedBox(
-          height: 32,
+          height: 20,
         ),
 
         /// Ajout d'un repas
@@ -107,7 +104,6 @@ class _CalorieViewState extends State<CalorieView> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: 200,
                 child: TextButton(
                   onPressed: () async {
                     await Navigator.pushNamed(context, '/add_meal');
@@ -120,11 +116,16 @@ class _CalorieViewState extends State<CalorieView> {
                     backgroundColor: Theme.of(context).colorScheme.primary,
                     foregroundColor: Theme.of(context).colorScheme.onPrimary,
                   ),
-                  child: const SizedBox(
-                    child: Text(
-                      'Ajouter un repas',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.add),
+                      const SizedBox(width: 8),
+                      Text(
+                        'Ajouter un repas',
+                        style: Theme.of(context).textTheme.labelSmall,
+                      ),
+                    ],
                   ),
                 ),
               ),
