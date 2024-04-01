@@ -1,5 +1,6 @@
-import 'package:compteur_cal/ui/utils/nutriments_box.dart';
-import 'package:compteur_cal/ui/utils/theme/app_theme.dart';
+import 'package:compteur_cal/ui/widget/button.dart';
+import 'package:compteur_cal/ui/widget/nutriments_box.dart';
+import 'package:compteur_cal/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
@@ -95,43 +96,41 @@ class _CalorieViewState extends State<CalorieView> {
           height: 20,
         ),
 
-        /// Ajout d'un repas
-        GestureDetector(
-          onTap: () async {
-            await Navigator.pushNamed(context, '/add_meal');
-          },
+        const SizedBox(
+          height: 20,
+        ),
+
+        /// Liste des aliments du petit déjeuner
+        Container(
+          padding: const EdgeInsets.all(12),
+          decoration: ShapeDecoration(
+            color: Theme.of(context).colorScheme.surfaceVariant,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                child: TextButton(
-                  onPressed: () async {
-                    await Navigator.pushNamed(context, '/add_meal');
-                  },
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    backgroundColor: Theme.of(context).colorScheme.primary,
-                    foregroundColor: Theme.of(context).colorScheme.onPrimary,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Petit Déjeuner',
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Icon(Icons.add),
-                      const SizedBox(width: 8),
-                      Text(
-                        'Ajouter un repas',
-                        style: Theme.of(context).textTheme.labelSmall,
-                      ),
-                    ],
+
+                  /// Button repas
+                  Button(
+                    onPressed: () async {
+                      await Navigator.pushNamed(context, '/add_meal');
+                    },
+                    buttonText: 'Ajouter',
                   ),
-                ),
-              ),
+                ],
+              )
             ],
           ),
-        )
+        ),
       ],
     );
   }
