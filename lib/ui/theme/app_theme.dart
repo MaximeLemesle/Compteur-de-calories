@@ -12,14 +12,14 @@ class AppTheme {
 ThemeData lightMode = ThemeData(
   brightness: Brightness.light,
   colorScheme: const ColorScheme.light(
-    primary: AppTheme.tealGreen,
-    onPrimary: Colors.white,
-    secondary: Color(0xFF9DA0AF),
-    background: Colors.white,
-    onBackground: Color(0xFF0D0D0D),
-    surfaceVariant: Color(0xFFF6F7FB),
-    outline: Color(0xFFD5D6DD),
-  ),
+      primary: AppTheme.tealGreen,
+      onPrimary: Colors.white,
+      secondary: Color(0xFF9DA0AF),
+      background: Colors.white,
+      onBackground: Color(0xFF0D0D0D),
+      surfaceVariant: Color(0xFFF6F7FB),
+      outline: Color(0xFFD5D6DD),
+      outlineVariant: Color(0xFF9C9FAE)),
   textTheme: TextTheme(
     /// Titre
     displayLarge: TextStyle(
@@ -98,18 +98,14 @@ ThemeData lightMode = ThemeData(
 ThemeData darkMode = ThemeData(
   brightness: Brightness.dark,
   colorScheme: const ColorScheme.dark(
-    // primary: AppTheme.skyBlue,
-    // onPrimary: Colors.grey.shade900,
-    // background: Colors.grey.shade900,
-    // onBackground: Colors.grey.shade100,
-    // surfaceVariant: Colors.grey.shade700,
-    primary: AppTheme.skyBlue,
+    primary: AppTheme.tealGreen,
     onPrimary: Color(0xFF0D0D0D),
     secondary: Color(0xFFF6F7FB),
     background: Color(0xFF0D0D0D),
     onBackground: Colors.white,
-    surfaceVariant: Color(0xFF9DA0AF),
-    outline: Color(0xFFD5D6DD),
+    surfaceVariant: Color(0xFF242628),
+    outline: Color(0xFF9C9FAE),
+    outlineVariant: Color(0xFFD5D6DD),
   ),
   textTheme: TextTheme(
     /// Titre

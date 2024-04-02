@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Theme.of(context).colorScheme.background,
       ),
 
-      // --- Content --- //
+      /// Content
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(12.0),
@@ -47,7 +47,7 @@ class _HomeState extends State<Home> {
         ),
       ),
 
-      // --- Bar de navigation --- //
+      /// Bar de navigation
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -55,7 +55,7 @@ class _HomeState extends State<Home> {
             label: 'Statistiques',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.coffee),
+            icon: ImageIcon(AssetImage('lib/ui/assets/icons/apple.svg')),
             label: 'Calories',
           ),
           BottomNavigationBarItem(

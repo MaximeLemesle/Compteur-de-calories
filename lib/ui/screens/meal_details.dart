@@ -29,16 +29,6 @@ class _MealDetailsState extends State<MealDetails> {
               style: const TextStyle(fontSize: 18.0),
             ),
             const SizedBox(height: 8.0),
-            // Text(
-            //   'Calories: ${aliment.calories}',
-            //   style: const TextStyle(fontSize: 18.0),
-            // ),
-            // const SizedBox(height: 8.0),
-            // Text(
-            //   'Taille de la portion: ${aliment.servingSize} g',
-            //   style: const TextStyle(fontSize: 18.0),
-            // ),
-            // Ajoutez d'autres informations sur l'aliment ici
           ],
         ),
       ),
