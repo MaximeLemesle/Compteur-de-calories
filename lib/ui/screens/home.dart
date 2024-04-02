@@ -55,11 +55,11 @@ class _HomeState extends State<Home> {
             label: 'Statistiques',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('lib/ui/assets/icons/apple.svg')),
+            icon: Icon(Icons.whatshot_rounded),
             label: 'Calories',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.dining_outlined),
+            icon: Icon(Icons.pie_chart_outline_outlined),
             label: 'Repas',
           ),
         ],
