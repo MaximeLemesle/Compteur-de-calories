@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:compteur_cal/models/aliment.dart';
 import 'package:compteur_cal/repositories/aliment_repository.dart';
+import 'package:compteur_cal/ui/widget/text_field.dart';
 import 'package:flutter/material.dart';
 
 class AddMeal extends StatefulWidget {
@@ -25,8 +26,8 @@ class _AddMealState extends State<AddMeal> {
         ),
         backgroundColor: Theme.of(context).colorScheme.background,
       ),
-      body: Container(
-        margin: const EdgeInsets.all(10.0),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
             // --- Recherche des aliments --- //
@@ -57,6 +58,10 @@ class _AddMealState extends State<AddMeal> {
                   },
                 );
               },
+            ),
+
+            const MyTextField(
+              labelText: "Rechercher un aliment",
             ),
 
             // --- Affichage des résultat de l'API --- //
