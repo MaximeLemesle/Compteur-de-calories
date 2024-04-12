@@ -19,8 +19,11 @@ class _AddMealState extends State<AddMeal> {
     return Scaffold(
       // --- AppBar --- //
       appBar: AppBar(
-        title: const Text('Ajouter un repas'),
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        title: Text(
+          'Ajouter un aliment',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
+        backgroundColor: Theme.of(context).colorScheme.background,
       ),
       body: Container(
         margin: const EdgeInsets.all(10.0),
