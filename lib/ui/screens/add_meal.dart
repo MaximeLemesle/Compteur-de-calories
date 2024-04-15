@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:compteur_cal/models/aliment.dart';
 import 'package:compteur_cal/repositories/aliment_repository.dart';
 import 'package:compteur_cal/ui/widget/text_field.dart';
@@ -13,7 +12,6 @@ class AddMeal extends StatefulWidget {
 
 class _AddMealState extends State<AddMeal> {
   static List<Aliment> _aliments = [];
-  Timer? _searchTimer;
 
   @override
   Widget build(BuildContext context) {
@@ -31,37 +29,14 @@ class _AddMealState extends State<AddMeal> {
         child: Column(
           children: <Widget>[
             // --- Recherche des aliments --- //
-            TextField(
-              decoration: InputDecoration(
-                suffixIcon: Icon(
-                  Icons.search,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-                labelText: 'Rechercher un aliment',
-              ),
-
-              // --- Timer --- //
-              onChanged: (value) {
-                if (_searchTimer != null) {
-                  _searchTimer!.cancel();
-                }
-                _searchTimer = Timer(
-                  const Duration(milliseconds: 500),
-                  () async {
-                    if (value.length >= 3) {
-                      final result =
-                          await AlimentRepository().fetchAliments(value);
-                      setState(() {
-                        _aliments = result;
-                      });
-                    }
-                  },
-                );
+            SearchTextField(
+              labelText: 'Rechercher un aliment',
+              onChanged: (value) async {
+                final result = await AlimentRepository().fetchAliments(value);
+                setState(() {
+                  _aliments = result;
+                });
               },
-            ),
-
-            const MyTextField(
-              labelText: "Rechercher un aliment",
             ),
 
             // --- Affichage des résultat de l'API --- //
