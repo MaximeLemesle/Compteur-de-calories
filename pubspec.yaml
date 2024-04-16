@@ -16,6 +16,7 @@ dependencies:
   percent_indicator: ^4.2.3
   http: ^1.2.1
   webview_flutter: ^4.7.0
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_test:
@@ -27,8 +28,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - lib/ui/assets/icons/apple.png
-    - lib/ui/assets/icons/salad.png
+    - lib/ui/assets/
 
   fonts:
     - family: Dela Gothic One
