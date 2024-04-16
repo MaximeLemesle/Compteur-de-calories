@@ -28,14 +28,14 @@ flutter:
   uses-material-design: true
 
   assets:
-    - lib/ui/assets/
+    - assets/img/
 
   fonts:
     - family: Dela Gothic One
       fonts:
-        - asset: lib/ui/assets/fonts/DelaGothicOne-Regular.ttf
+        - asset: assets/fonts/DelaGothicOne-Regular.ttf
 
     - family: Spline Sans Mono
       fonts:
-        - asset: lib/ui/assets/fonts/SplineSansMono-Medium.ttf
-        - asset: lib/ui/assets/fonts/SplineSansMono-SemiBold.ttf
+        - asset: assets/fonts/SplineSansMono-Medium.ttf
+        - asset: assets/fonts/SplineSansMono-SemiBold.ttf

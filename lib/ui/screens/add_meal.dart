@@ -3,7 +3,6 @@ import 'package:compteur_cal/repositories/aliment_repository.dart';
 import 'package:compteur_cal/ui/theme/app_theme.dart';
 import 'package:compteur_cal/ui/widget/text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class AddMeal extends StatefulWidget {
   const AddMeal({super.key});
@@ -14,6 +13,7 @@ class AddMeal extends StatefulWidget {
 
 class _AddMealState extends State<AddMeal> {
   static List<Aliment> _aliments = [];
+  bool _showResults = false;
 
   @override
   Widget build(BuildContext context) {
@@ -38,72 +38,82 @@ class _AddMealState extends State<AddMeal> {
                 final result = await AlimentRepository().fetchAliments(value);
                 setState(() {
                   _aliments = result;
+                  _showResults = _aliments.isNotEmpty || value.isNotEmpty;
                 });
               },
             ),
 
+            const SizedBox(
+              height: 16,
+            ),
+
             /// Affichage du fond de recherche
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 12),
-              child: Column(
-                children: [
-                  SvgPicture.asset('lib/ui/assets/img/arrow-1.png'),
-                  const SizedBox(
-                    height: 12,
-                  ),
-                  Center(
-                    child: SizedBox(
-                      height: 100,
-                      child: Text.rich(
-                        TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'Taper votre ',
-                              style: Theme.of(context).textTheme.displayMedium,
-                            ),
-                            const TextSpan(
-                              text: 'recherche',
-                              style: TextStyle(
-                                color: AppTheme.tealGreen,
-                                fontSize: 22,
-                                fontFamily: 'Dela Gothic One',
-                                letterSpacing: 0.44,
-                              ),
-                            ),
-                            TextSpan(
-                              text: ' pour ',
-                              style: Theme.of(context).textTheme.displayMedium,
-                            ),
-                            const TextSpan(
-                              text: 'trouver',
-                              style: TextStyle(
-                                color: AppTheme.mustardYellow,
-                                fontSize: 22,
-                                fontFamily: 'Dela Gothic One',
-                                letterSpacing: 0.44,
-                              ),
-                            ),
-                            TextSpan(
-                              text: ' des ',
-                              style: Theme.of(context).textTheme.displayMedium,
-                            ),
-                            const TextSpan(
-                              text: 'aliments',
-                              style: TextStyle(
-                                color: AppTheme.blueViolet,
-                                fontSize: 22,
-                                fontFamily: 'Dela Gothic One',
-                                letterSpacing: 0.44,
-                              ),
-                            ),
-                          ],
-                        ),
-                        textAlign: TextAlign.center,
+            Column(
+              children: _showResults
+                  ? []
+                  : [
+                      const Image(
+                        image: AssetImage('assets/img/arrow-1.png'),
+                        height: 100,
                       ),
-                    ),
-                  )
-                ],
-              ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      Center(
+                        child: SizedBox(
+                          height: 100,
+                          child: Text.rich(
+                            TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Taper votre ',
+                                  style:
+                                      Theme.of(context).textTheme.displayMedium,
+                                ),
+                                const TextSpan(
+                                  text: 'recherche',
+                                  style: TextStyle(
+                                    color: AppTheme.tealGreen,
+                                    fontSize: 22,
+                                    fontFamily: 'Dela Gothic One',
+                                    letterSpacing: 0.44,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: ' pour ',
+                                  style:
+                                      Theme.of(context).textTheme.displayMedium,
+                                ),
+                                const TextSpan(
+                                  text: 'trouver',
+                                  style: TextStyle(
+                                    color: AppTheme.mustardYellow,
+                                    fontSize: 22,
+                                    fontFamily: 'Dela Gothic One',
+                                    letterSpacing: 0.44,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: ' des ',
+                                  style:
+                                      Theme.of(context).textTheme.displayMedium,
+                                ),
+                                const TextSpan(
+                                  text: 'aliments',
+                                  style: TextStyle(
+                                    color: AppTheme.blueViolet,
+                                    fontSize: 22,
+                                    fontFamily: 'Dela Gothic One',
+                                    letterSpacing: 0.44,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      )
+                    ],
             ),
 
             /// Affichage des résultat de l'API
