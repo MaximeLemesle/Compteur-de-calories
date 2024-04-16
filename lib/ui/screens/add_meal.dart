@@ -16,7 +16,7 @@ class _AddMealState extends State<AddMeal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // --- AppBar --- //
+      /// AppBar
       appBar: AppBar(
         title: Text(
           'Ajouter un aliment',
@@ -24,11 +24,13 @@ class _AddMealState extends State<AddMeal> {
         ),
         backgroundColor: Theme.of(context).colorScheme.background,
       ),
+      
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
-            // --- Recherche des aliments --- //
+
+            /// Recherche des aliments
             SearchTextField(
               labelText: 'Rechercher un aliment',
               onChanged: (value) async {
@@ -39,7 +41,7 @@ class _AddMealState extends State<AddMeal> {
               },
             ),
 
-            // --- Affichage des résultat de l'API --- //
+            /// Affichage des résultat de l'API
             Expanded(
               child: ListView.separated(
                 itemCount: _aliments.length,

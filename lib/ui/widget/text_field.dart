@@ -15,7 +15,6 @@ class SearchTextField extends StatefulWidget {
 
 class _SearchTextFieldState extends State<SearchTextField> {
   Timer? _searchTimer;
-  get labelText => null;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
           Icons.search,
           color: Theme.of(context).colorScheme.secondary,
         ),
-        labelText: labelText,
+        labelText: widget.labelText,
         fillColor: Theme.of(context).colorScheme.secondary,
         contentPadding:
             const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
