@@ -1,17 +1,18 @@
 import 'package:compteur_cal/models/aliment.dart';
 import 'package:compteur_cal/repositories/aliment_repository.dart';
 import 'package:compteur_cal/ui/theme/app_theme.dart';
+import 'package:compteur_cal/ui/widget/aliment_card.dart';
 import 'package:compteur_cal/ui/widget/text_field.dart';
 import 'package:flutter/material.dart';
 
-class AddMeal extends StatefulWidget {
-  const AddMeal({super.key});
+class AddAliment extends StatefulWidget {
+  const AddAliment({super.key});
 
   @override
-  State<AddMeal> createState() => _AddMealState();
+  State<AddAliment> createState() => _AddAlimentState();
 }
 
-class _AddMealState extends State<AddMeal> {
+class _AddAlimentState extends State<AddAliment> {
   static List<Aliment> _aliments = [];
   bool _showResults = false;
 
@@ -114,6 +115,12 @@ class _AddMealState extends State<AddMeal> {
                         ),
                       )
                     ],
+            ),
+
+            /// Aliment cards
+            const AlimentCard(
+              alimentName: 'Banane',
+              alimentWeight: '100g',
             ),
 
             /// Affichage des résultat de l'API
