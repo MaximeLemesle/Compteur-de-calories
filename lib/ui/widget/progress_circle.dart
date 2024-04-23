@@ -4,16 +4,20 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 class ProgressCircle extends StatelessWidget {
   final String titleText;
   final String subtitleText;
+  final double percentage;
 
   const ProgressCircle(
-      {super.key, required this.titleText, required this.subtitleText});
+      {super.key,
+      required this.titleText,
+      required this.subtitleText,
+      required this.percentage});
 
   @override
   Widget build(BuildContext context) {
     return CircularPercentIndicator(
       radius: 100.0,
       lineWidth: 20.0,
-      percent: 0.6,
+      percent: percentage / 100,
       animation: true,
       animationDuration: 1000,
       circularStrokeCap: CircularStrokeCap.round,

@@ -134,6 +134,10 @@ class _RecetteViewState extends State<RecetteView> {
                       alimentWeight: '100g',
                       colorBackground:
                           Theme.of(context).colorScheme.surfaceVariant,
+                      calories: aliment.calories,
+                      glucides: aliment.glucides,
+                      proteins: aliment.proteins,
+                      fats: aliment.fats,
                     ),
                     const SizedBox(height: 16),
                   ],

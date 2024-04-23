@@ -39,7 +39,7 @@ class NutrimentsBox extends StatelessWidget {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: '73',
+                        text: (124 * nutrimentsProgress).toString(),
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       TextSpan(
