@@ -100,7 +100,7 @@ class _CalorieViewState extends State<CalorieView> {
                   /// Button
                   Button(
                     onPressed: () async {
-                      await Navigator.pushNamed(context, '/add_meal');
+                      await Navigator.pushNamed(context, '/add_aliment');
                     },
                     buttonText: 'Ajouter',
                   ),
@@ -166,7 +166,7 @@ class _CalorieViewState extends State<CalorieView> {
                   /// Button
                   Button(
                     onPressed: () async {
-                      await Navigator.pushNamed(context, '/add_meal');
+                      await Navigator.pushNamed(context, '/add_aliment');
                     },
                     buttonText: 'Ajouter',
                   ),
@@ -202,7 +202,7 @@ class _CalorieViewState extends State<CalorieView> {
                   /// Button
                   Button(
                     onPressed: () async {
-                      await Navigator.pushNamed(context, '/add_meal');
+                      await Navigator.pushNamed(context, '/add_aliment');
                     },
                     buttonText: 'Ajouter',
                   ),

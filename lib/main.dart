@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       darkTheme: darkMode,
       routes: {
         '/home': (context) => const Home(),
-        '/add_meal': (context) => const AddAliment(),
+        '/add_aliment': (context) => const AddAliment(),
         '/meal_details': (context) => const MealDetails(),
       },
       initialRoute: '/home',
