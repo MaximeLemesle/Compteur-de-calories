@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 class AlimentCard extends StatefulWidget {
   final String alimentName;
-  final String alimentWeight;
   final Color colorBackground;
   final double calories;
   final double glucides;
@@ -14,7 +13,6 @@ class AlimentCard extends StatefulWidget {
   const AlimentCard({
     super.key,
     required this.alimentName,
-    required this.alimentWeight,
     required this.colorBackground,
     required this.calories,
     required this.glucides,
@@ -58,7 +56,7 @@ class _AlimentCardState extends State<AlimentCard> {
                       height: 6,
                     ),
                     Text(
-                      widget.alimentWeight,
+                      '${widget.calories}kcal',
                       style: Theme.of(context).textTheme.labelMedium,
                     )
                   ],

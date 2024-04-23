@@ -9,10 +9,10 @@ class AlimentCubit extends Cubit<List<Aliment>> {
   /// Méthode pour charger la liste des aliments
   Future<void> loadAliments() async {
     emit([
-      Aliment(id: 1, name: 'Banane'),
-      Aliment(id: 2, name: 'Poire'),
-      Aliment(id: 3, name: 'Kiwi'),
-      Aliment(id: 4, name: 'Pomme'),
+      // Aliment(id: 1, name: 'Banane'),
+      // Aliment(id: 2, name: 'Poire'),
+      // Aliment(id: 3, name: 'Kiwi'),
+      // Aliment(id: 4, name: 'Pomme'),
     ]);
   }
 

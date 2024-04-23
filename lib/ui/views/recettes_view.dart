@@ -127,15 +127,15 @@ class _RecetteViewState extends State<RecetteView> {
           builder: (context, state) {
             return Column(
               children: state.map((aliment) {
-                return Column(
+                return const Column(
                   children: [
-                    AlimentCard(
-                      alimentName: aliment.name,
-                      alimentWeight: '100g',
-                      colorBackground:
-                          Theme.of(context).colorScheme.surfaceVariant,
-                    ),
-                    const SizedBox(height: 16),
+                    // AlimentCard(
+                    //   alimentName: aliment.name,
+                    //   alimentWeight: '100g',
+                    //   colorBackground:
+                    //       Theme.of(context).colorScheme.surfaceVariant,
+                    // ),
+                    SizedBox(height: 16),
                   ],
                 );
               }).toList(),

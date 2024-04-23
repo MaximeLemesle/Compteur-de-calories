@@ -1,14 +1,14 @@
 import 'package:compteur_cal/models/aliment.dart';
 import 'package:flutter/material.dart';
 
-class MealDetails extends StatefulWidget {
-  const MealDetails({super.key});
+class AlimentDetails extends StatefulWidget {
+  const AlimentDetails({super.key});
 
   @override
-  State<MealDetails> createState() => _MealDetailsState();
+  State<AlimentDetails> createState() => _AlimentDetailsState();
 }
 
-class _MealDetailsState extends State<MealDetails> {
+class _AlimentDetailsState extends State<AlimentDetails> {
   @override
   Widget build(BuildContext context) {
     final Aliment aliment =

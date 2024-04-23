@@ -2,6 +2,7 @@ import 'package:compteur_cal/models/aliment.dart';
 import 'package:compteur_cal/repositories/aliment_repository.dart';
 import 'package:compteur_cal/ui/theme/app_theme.dart';
 import 'package:compteur_cal/ui/widget/aliment_card.dart';
+import 'package:compteur_cal/ui/widget/aliment_card_small.dart';
 import 'package:compteur_cal/ui/widget/text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -123,43 +124,24 @@ class _AddAlimentState extends State<AddAliment> {
                 itemCount: _aliments.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: AlimentCard(
+                    padding: const EdgeInsets.all(4.0),
+                    child: AlimentCardSmall(
                       colorBackground:
                           Theme.of(context).colorScheme.surfaceVariant,
                       alimentName: _aliments[index].name.capitalize(),
-                      alimentWeight: '100g',
                       calories: _aliments[index].calories,
-                      glucides: _aliments[index].glucides,
-                      proteins: _aliments[index].proteins,
-                      fats: _aliments[index].fats,
+                      onPressed: () async {
+                        await Navigator.pushNamed(
+                          context,
+                          '/aliment_details',
+                          arguments: _aliments[index],
+                        );
+                      },
                     ),
-                    // ListTile(
-                    //   title: Text(
-                    //     _aliments[index].name.capitalize(),
-                    //     style: Theme.of(context).textTheme.titleSmall,
-                    //   ),
-                    //   subtitle: const Row(
-                    //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    //     children: [
-                    //       Text('calories'),
-                    //       Text('protein'),
-                    //       Text('lipides'),
-                    //     ],
-                    //   ),
-                    //   onTap: () async {
-                    //     /// Aller sur une page avec les infos complètes du produits
-                    //     await Navigator.pushNamed(
-                    //       context,
-                    //       '/meal_details',
-                    //       arguments: _aliments[index],
-                    //     );
-                    //   },
-                    // ),
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) {
-                  return const Divider(height: 0);
+                  return const SizedBox.shrink();
                 },
               ),
             ),

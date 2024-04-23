@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class Button extends StatelessWidget {
   final VoidCallback onPressed;
   final String buttonText;
+  final bool showIcon;
 
   const Button({
     super.key,
     required this.onPressed,
     required this.buttonText,
+    this.showIcon = true,
   });
 
   @override
@@ -25,11 +27,12 @@ class Button extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(
-            Icons.add,
-            size: 16,
-          ),
-          const SizedBox(width: 8),
+          if (showIcon)
+            const Icon(
+              Icons.add,
+              size: 16,
+            ),
+          if (showIcon) const SizedBox(width: 8),
           Text(
             buttonText,
             style: Theme.of(context).textTheme.labelSmall,
