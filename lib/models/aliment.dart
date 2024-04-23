@@ -1,15 +1,30 @@
 class Aliment {
   final int id;
   final String name;
+  final double quantity;
+  final double calories;
+  final double glucides;
+  final double proteins;
+  final double fats;
 
   factory Aliment.fromGeoJson(Map<String, dynamic> json) {
     final Map<String, dynamic> properties = json['properties'] ?? {};
     final int id = properties['id'];
     final String name = properties['name'];
+    final double quantity = properties['quantity'];
+    final double calories = properties['calories'];
+    final double glucides = properties['glucides'];
+    final double proteins = properties['proteins'];
+    final double fats = properties['fats'];
 
     return Aliment(
       id: id,
-      name: name,
+      name: name, 
+      quantity: quantity, 
+      calories: calories, 
+      glucides: glucides, 
+      proteins: proteins, 
+      fats: fats,
     );
   }
 
@@ -21,11 +36,16 @@ class Aliment {
   }
 
   factory Aliment.fromJson(Map<String, dynamic> json) {
-    return Aliment(id: json['id'], name: json['name']);
+    return Aliment(id: json['id'], name: json['name'], quantity: json['quantity'], calories: json['calories'], glucides: json['glucides'], proteins: json['proteins'], fats: json['fats']);
   }
 
   Aliment({
     required this.id,
     required this.name,
+    required this.quantity,
+    required this.calories,
+    required this.glucides,
+    required this.proteins,
+    required this.fats,
   });
 }

@@ -120,31 +120,31 @@ class _RecetteViewState extends State<RecetteView> {
             ),
           ],
         ),
-        Column(
-          children: [
-            AlimentCard(
-              alimentName: 'Banane',
-              alimentWeight: '100g',
-              colorBackground: Theme.of(context).colorScheme.surfaceVariant,
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            AlimentCard(
-              alimentName: 'Poire',
-              alimentWeight: '100g',
-              colorBackground: Theme.of(context).colorScheme.surfaceVariant,
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            AlimentCard(
-              alimentName: 'Kiwi',
-              alimentWeight: '100g',
-              colorBackground: Theme.of(context).colorScheme.surfaceVariant,
-            ),
-          ],
-        ),
+        // Column(
+        //   children: [
+        //     AlimentCard(
+        //       alimentName: 'Banane',
+        //       alimentWeight: '100g',
+        //       colorBackground: Theme.of(context).colorScheme.surfaceVariant,
+        //     ),
+        //     const SizedBox(
+        //       height: 16,
+        //     ),
+        //     AlimentCard(
+        //       alimentName: 'Poire',
+        //       alimentWeight: '100g',
+        //       colorBackground: Theme.of(context).colorScheme.surfaceVariant,
+        //     ),
+        //     const SizedBox(
+        //       height: 16,
+        //     ),
+        //     AlimentCard(
+        //       alimentName: 'Kiwi',
+        //       alimentWeight: '100g',
+        //       colorBackground: Theme.of(context).colorScheme.surfaceVariant,
+        //     ),
+        //   ],
+        // ),
       ],
     );
   }

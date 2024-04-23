@@ -111,31 +111,31 @@ class _CalorieViewState extends State<CalorieView> {
               ),
 
               /// Aliment cards
-              AlimentCard(
-                colorBackground: Theme.of(context).colorScheme.background,
-                alimentName: 'Banane',
-                alimentWeight: '100g',
-              ),
+              // AlimentCard(
+              //   colorBackground: Theme.of(context).colorScheme.background,
+              //   alimentName: 'Banane',
+              //   alimentWeight: '100g',
+              // ),
 
-              const SizedBox(
-                height: 8,
-              ),
+              // const SizedBox(
+              //   height: 8,
+              // ),
 
-              AlimentCard(
-                colorBackground: Theme.of(context).colorScheme.background,
-                alimentName: 'Pancakes',
-                alimentWeight: '250g',
-              ),
+              // AlimentCard(
+              //   colorBackground: Theme.of(context).colorScheme.background,
+              //   alimentName: 'Pancakes',
+              //   alimentWeight: '250g',
+              // ),
 
-              const SizedBox(
-                height: 8,
-              ),
+              // const SizedBox(
+              //   height: 8,
+              // ),
 
-              AlimentCard(
-                colorBackground: Theme.of(context).colorScheme.background,
-                alimentName: 'Lait',
-                alimentWeight: '10cl',
-              )
+              // AlimentCard(
+              //   colorBackground: Theme.of(context).colorScheme.background,
+              //   alimentName: 'Lait',
+              //   alimentWeight: '10cl',
+              // )
             ],
           ),
         ),

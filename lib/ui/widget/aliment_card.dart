@@ -6,12 +6,20 @@ class AlimentCard extends StatefulWidget {
   final String alimentName;
   final String alimentWeight;
   final Color colorBackground;
+  final double calories;
+  final double glucides;
+  final double proteins;
+  final double fats;
 
   const AlimentCard({
     super.key,
     required this.alimentName,
     required this.alimentWeight,
     required this.colorBackground,
+    required this.calories,
+    required this.glucides,
+    required this.proteins,
+    required this.fats,
   });
 
   @override
@@ -20,18 +28,6 @@ class AlimentCard extends StatefulWidget {
 
 class _AlimentCardState extends State<AlimentCard> {
   bool isMacroVisible = false;
-  final List<String> macronutrimentsName = [
-    'Calories',
-    'Glucides',
-    'Protéines',
-    'Lipides',
-  ];
-  final List<String> macronutrimentsWeight = [
-    '230,7kcal',
-    '23g',
-    '12g',
-    '8g',
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -107,23 +103,23 @@ class _AlimentCardState extends State<AlimentCard> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             MacronutrimentsInformations(
-                              macronutriments: macronutrimentsName[0],
-                              value: macronutrimentsWeight[0],
+                              macronutriments: 'Calories',
+                              value: '${widget.calories}kcal',
                               color: AppTheme.tealGreen,
                             ),
                             MacronutrimentsInformations(
-                              macronutriments: macronutrimentsName[1],
-                              value: macronutrimentsWeight[1],
+                              macronutriments: 'Glucides',
+                              value: '${widget.glucides}g',
                               color: AppTheme.pinkRose,
                             ),
                             MacronutrimentsInformations(
-                              macronutriments: macronutrimentsName[2],
-                              value: macronutrimentsWeight[2],
+                              macronutriments: 'Protéines',
+                              value: '${widget.proteins}g',
                               color: AppTheme.skyBlue,
                             ),
                             MacronutrimentsInformations(
-                              macronutriments: macronutrimentsName[3],
-                              value: macronutrimentsWeight[3],
+                              macronutriments: 'Lipides',
+                              value: '${widget.fats}g',
                               color: AppTheme.mustardYellow,
                             ),
                           ],

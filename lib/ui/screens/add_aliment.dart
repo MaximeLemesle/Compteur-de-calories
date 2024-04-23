@@ -117,13 +117,6 @@ class _AddAlimentState extends State<AddAliment> {
                     ],
             ),
 
-            /// Aliment cards
-            AlimentCard(
-              colorBackground: Theme.of(context).colorScheme.surfaceVariant,
-              alimentName: 'Banane',
-              alimentWeight: '100g',
-            ),
-
             /// Affichage des résultat de l'API
             Expanded(
               child: ListView.separated(
@@ -131,33 +124,38 @@ class _AddAlimentState extends State<AddAliment> {
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: ListTile(
-                      leading: Image.network(
-                        'https://img.spoonacular.com/ingredients_100x100/${_aliments[index].image}',
-                        width: 60,
-                        fit: BoxFit.fitHeight,
-                      ),
-                      title: Text(
-                        _aliments[index].name.capitalize(),
-                        style: Theme.of(context).textTheme.titleSmall,
-                      ),
-                      subtitle: const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text('calories'),
-                          Text('protein'),
-                          Text('lipides'),
-                        ],
-                      ),
-                      onTap: () async {
-                        /// Aller sur une page avec les infos complètes du produits
-                        await Navigator.pushNamed(
-                          context,
-                          '/meal_details',
-                          arguments: _aliments[index],
-                        );
-                      },
+                    child: AlimentCard(
+                      colorBackground:
+                          Theme.of(context).colorScheme.surfaceVariant,
+                      alimentName: _aliments[index].name.capitalize(),
+                      alimentWeight: '100g',
+                      calories: _aliments[index].calories,
+                      glucides: _aliments[index].glucides,
+                      proteins: _aliments[index].proteins,
+                      fats: _aliments[index].fats,
                     ),
+                    // ListTile(
+                    //   title: Text(
+                    //     _aliments[index].name.capitalize(),
+                    //     style: Theme.of(context).textTheme.titleSmall,
+                    //   ),
+                    //   subtitle: const Row(
+                    //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    //     children: [
+                    //       Text('calories'),
+                    //       Text('protein'),
+                    //       Text('lipides'),
+                    //     ],
+                    //   ),
+                    //   onTap: () async {
+                    //     /// Aller sur une page avec les infos complètes du produits
+                    //     await Navigator.pushNamed(
+                    //       context,
+                    //       '/meal_details',
+                    //       arguments: _aliments[index],
+                    //     );
+                    //   },
+                    // ),
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) {
