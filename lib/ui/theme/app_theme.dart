@@ -28,6 +28,12 @@ ThemeData lightMode = ThemeData(
       color: Colors.grey.shade900,
       letterSpacing: .64,
     ),
+    displayMedium: TextStyle(
+      fontSize: 22,
+      fontFamily: 'Dela Gothic One',
+      color: Colors.grey.shade500,
+      letterSpacing: .44,
+    ),
     titleLarge: TextStyle(
       fontSize: 22,
       fontFamily: 'Dela Gothic One',
@@ -114,6 +120,12 @@ ThemeData darkMode = ThemeData(
       fontFamily: 'Dela Gothic One',
       color: Colors.grey.shade100,
       letterSpacing: .64,
+    ),
+    displayMedium: TextStyle(
+      fontSize: 22,
+      fontFamily: 'Dela Gothic One',
+      color: Colors.grey.shade400,
+      letterSpacing: .44,
     ),
     titleLarge: TextStyle(
       fontSize: 22,

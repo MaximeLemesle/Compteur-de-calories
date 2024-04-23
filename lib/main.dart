@@ -1,4 +1,4 @@
-import 'package:compteur_cal/ui/screens/add_meal.dart';
+import 'package:compteur_cal/ui/screens/add_aliment.dart';
 import 'package:compteur_cal/ui/screens/home.dart';
 import 'package:compteur_cal/ui/screens/meal_details.dart';
 import 'package:compteur_cal/ui/theme/app_theme.dart';
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       darkTheme: darkMode,
       routes: {
         '/home': (context) => const Home(),
-        '/add_meal': (context) => const AddMeal(),
+        '/add_meal': (context) => const AddAliment(),
         '/meal_details': (context) => const MealDetails(),
       },
       initialRoute: '/home',
