@@ -111,7 +111,8 @@ class _CalorieViewState extends State<CalorieView> {
               ),
 
               /// Aliment cards
-              const AlimentCard(
+              AlimentCard(
+                colorBackground: Theme.of(context).colorScheme.background,
                 alimentName: 'Banane',
                 alimentWeight: '100g',
               ),
@@ -120,7 +121,8 @@ class _CalorieViewState extends State<CalorieView> {
                 height: 8,
               ),
 
-              const AlimentCard(
+              AlimentCard(
+                colorBackground: Theme.of(context).colorScheme.background,
                 alimentName: 'Pancakes',
                 alimentWeight: '250g',
               ),
@@ -129,7 +131,8 @@ class _CalorieViewState extends State<CalorieView> {
                 height: 8,
               ),
 
-              const AlimentCard(
+              AlimentCard(
+                colorBackground: Theme.of(context).colorScheme.background,
                 alimentName: 'Lait',
                 alimentWeight: '10cl',
               )

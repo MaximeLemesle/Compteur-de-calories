@@ -118,7 +118,8 @@ class _AddAlimentState extends State<AddAliment> {
             ),
 
             /// Aliment cards
-            const AlimentCard(
+            AlimentCard(
+              colorBackground: Theme.of(context).colorScheme.surfaceVariant,
               alimentName: 'Banane',
               alimentWeight: '100g',
             ),

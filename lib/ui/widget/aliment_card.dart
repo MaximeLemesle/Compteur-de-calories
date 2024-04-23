@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 class AlimentCard extends StatefulWidget {
   final String alimentName;
   final String alimentWeight;
+  final Color colorBackground;
 
   const AlimentCard({
     super.key,
     required this.alimentName,
     required this.alimentWeight,
+    required this.colorBackground,
   });
 
   @override
@@ -37,7 +39,7 @@ class _AlimentCardState extends State<AlimentCard> {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: ShapeDecoration(
-        color: Theme.of(context).colorScheme.background,
+        color: widget.colorBackground,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
