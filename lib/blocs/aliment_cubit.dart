@@ -13,7 +13,7 @@ class AlimentCubit extends Cubit<List<Aliment>> {
           id: 1,
           name: 'Banane',
           quantity: 1,
-          calories: 1112,
+          calories: 912,
           glucides: 30,
           proteins: 20,
           fats: 10),

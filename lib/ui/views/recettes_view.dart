@@ -123,29 +123,28 @@ class _RecetteViewState extends State<RecetteView> {
             ),
           ],
         ),
-        BlocBuilder<AlimentCubit, List<Aliment>>(
-          builder: (context, state) {
-            return Column(
-              children: state.map((aliment) {
-                return Column(
-                  children: [
-                    AlimentCard(
-                      alimentName: aliment.name,
-                      alimentWeight: '100g',
-                      colorBackground:
-                          Theme.of(context).colorScheme.surfaceVariant,
-                      calories: aliment.calories,
-                      glucides: aliment.glucides,
-                      proteins: aliment.proteins,
-                      fats: aliment.fats,
-                    ),
-                    const SizedBox(height: 16),
-                  ],
-                );
-              }).toList(),
-            );
-          },
-        ),
+        // BlocBuilder<AlimentCubit, List<Aliment>>(
+        //   builder: (context, state) {
+        //     return Column(
+        //       children: state.map((aliment) {
+        //         return const Column(
+        //           children: [
+        //             AlimentCard(
+        //               alimentName: aliment.name,
+        //               colorBackground:
+        //                   Theme.of(context).colorScheme.surfaceVariant,
+        //               calories: aliment.calories,
+        //               glucides: aliment.glucides,
+        //               proteins: aliment.proteins,
+        //               fats: aliment.fats,
+        //             ),
+        //             const SizedBox(height: 16),
+        //           ],
+        //         );
+        //       }).toList(),
+        //     );
+        //   },
+        // ),
       ],
     );
   }

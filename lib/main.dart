@@ -1,7 +1,7 @@
 import 'package:compteur_cal/blocs/aliment_cubit.dart';
 import 'package:compteur_cal/ui/screens/add_aliment.dart';
 import 'package:compteur_cal/ui/screens/home.dart';
-import 'package:compteur_cal/ui/screens/meal_details.dart';
+import 'package:compteur_cal/ui/screens/aliment_details.dart';
 import 'package:compteur_cal/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context) => const Home(),
         '/add_aliment': (context) => const AddAliment(),
-        '/meal_details': (context) => const MealDetails(),
+        '/aliment_details': (context) => const AlimentDetails(),
       },
       initialRoute: '/home',
     );

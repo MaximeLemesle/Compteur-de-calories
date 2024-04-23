@@ -177,7 +177,6 @@ class _CalorieViewState extends State<CalorieView> {
                             children: [
                               AlimentCard(
                                 alimentName: aliment.name,
-                                alimentWeight: '100g',
                                 colorBackground:
                                     Theme.of(context).colorScheme.background,
                                 calories: aliment.calories,
