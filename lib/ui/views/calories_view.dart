@@ -1,4 +1,3 @@
-import 'package:compteur_cal/ui/widget/aliment_card.dart';
 import 'package:compteur_cal/ui/widget/button.dart';
 import 'package:compteur_cal/ui/widget/nutriments_box.dart';
 import 'package:compteur_cal/ui/theme/app_theme.dart';
