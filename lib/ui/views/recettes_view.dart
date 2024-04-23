@@ -1,4 +1,7 @@
+import 'package:compteur_cal/blocs/aliment_cubit.dart';
+import 'package:compteur_cal/models/aliment.dart';
 import 'package:compteur_cal/ui/widget/aliment_card.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:compteur_cal/ui/widget/button.dart';
 import 'package:flutter/material.dart';
 
@@ -120,30 +123,24 @@ class _RecetteViewState extends State<RecetteView> {
             ),
           ],
         ),
-        Column(
-          children: [
-            AlimentCard(
-              alimentName: 'Banane',
-              alimentWeight: '100g',
-              colorBackground: Theme.of(context).colorScheme.surfaceVariant,
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            AlimentCard(
-              alimentName: 'Poire',
-              alimentWeight: '100g',
-              colorBackground: Theme.of(context).colorScheme.surfaceVariant,
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            AlimentCard(
-              alimentName: 'Kiwi',
-              alimentWeight: '100g',
-              colorBackground: Theme.of(context).colorScheme.surfaceVariant,
-            ),
-          ],
+        BlocBuilder<AlimentCubit, List<Aliment>>(
+          builder: (context, state) {
+            return Column(
+              children: state.map((aliment) {
+                return Column(
+                  children: [
+                    AlimentCard(
+                      alimentName: aliment.name,
+                      alimentWeight: '100g',
+                      colorBackground:
+                          Theme.of(context).colorScheme.surfaceVariant,
+                    ),
+                    const SizedBox(height: 16),
+                  ],
+                );
+              }).toList(),
+            );
+          },
         ),
       ],
     );

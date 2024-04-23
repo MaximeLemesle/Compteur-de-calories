@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_bloc: ^8.1.5
   cupertino_icons: ^1.0.6
   percent_indicator: ^4.2.3
   http: ^1.2.1

@@ -8,8 +8,7 @@ class AlimentRepository {
     const String apiKey = 'a798d2cb4ee14472a43a0c8a05f88c26';
     final Response response = await get(Uri.parse(
         'https://api.spoonacular.com/food/ingredients/search?query=$query&apiKey=$apiKey'));
-    if (response.
-    statusCode == 200) {
+    if (response.statusCode == 200) {
       final List<Aliment> aliments = [];
       final Map<String, dynamic> json = jsonDecode(response.body);
       final List<dynamic> results = json['results'];

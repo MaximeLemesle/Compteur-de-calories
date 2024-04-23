@@ -132,11 +132,6 @@ class _AddAlimentState extends State<AddAliment> {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ListTile(
-                      leading: Image.network(
-                        'https://img.spoonacular.com/ingredients_100x100/${_aliments[index].image}',
-                        width: 60,
-                        fit: BoxFit.fitHeight,
-                      ),
                       title: Text(
                         _aliments[index].name.capitalize(),
                         style: Theme.of(context).textTheme.titleSmall,
