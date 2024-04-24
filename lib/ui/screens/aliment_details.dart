@@ -1,3 +1,4 @@
+import 'package:compteur_cal/blocs/aliment_cubit.dart';
 import 'package:compteur_cal/models/aliment.dart';
 import 'package:compteur_cal/ui/widget/aliment_data_card.dart';
 import 'package:compteur_cal/ui/widget/button.dart';
@@ -5,6 +6,7 @@ import 'package:compteur_cal/ui/widget/dropdown_custom.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AlimentDetails extends StatefulWidget {
   const AlimentDetails({super.key});
@@ -92,7 +94,9 @@ class _AlimentDetailsState extends State<AlimentDetails> {
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               Button(
                 onPressed: () async {
-                  await Navigator.pushNamed(context, '/home');
+                  final alimentCubit = context.read<AlimentCubit>();
+                  alimentCubit.addAliment(aliment);
+                  Navigator.pushNamed(context, '/home');
                 },
                 buttonText: "Ajouter à ma journée",
               ),
