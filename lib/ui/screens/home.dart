@@ -51,16 +51,16 @@ class _HomeState extends State<Home> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_outlined),
-            label: 'Compte',
+            icon: Icon(Icons.pie_chart_outline_outlined),
+            label: 'Repas',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.whatshot_rounded),
             label: 'Calories',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.pie_chart_outline_outlined),
-            label: 'Repas',
+            icon: Icon(Icons.account_circle_outlined),
+            label: 'Compte',
           ),
         ],
         currentIndex: _selectedIndex,
