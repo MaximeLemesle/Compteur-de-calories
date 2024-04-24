@@ -1,6 +1,10 @@
 import 'package:compteur_cal/models/aliment.dart';
+import 'package:compteur_cal/ui/widget/aliment_data_card.dart';
+import 'package:compteur_cal/ui/widget/button.dart';
 import 'package:compteur_cal/ui/widget/dropdown_custom.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class AlimentDetails extends StatefulWidget {
   const AlimentDetails({super.key});
@@ -27,6 +31,7 @@ class _AlimentDetailsState extends State<AlimentDetails> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             /// Nom de la l'aliment
             Container(
@@ -53,7 +58,7 @@ class _AlimentDetailsState extends State<AlimentDetails> {
               height: 32,
             ),
 
-            /// Choix du poids
+            /// Affichage des données en fonction du poids
             SizedBox(
               width: double.infinity,
               child: Column(
@@ -70,9 +75,32 @@ class _AlimentDetailsState extends State<AlimentDetails> {
                   const DropdownCustom(),
 
                   const SizedBox(height: 16),
+
+                  /// Affichage des détails de l'aliment
+                  AlimentDataCard(
+                    calories: aliment.calories,
+                    glucides: aliment.glucides,
+                    proteins: aliment.proteins,
+                    fats: aliment.fats,
+                  ),
                 ],
               ),
-            )
+            ),
+
+            const Spacer(),
+
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Button(
+                onPressed: () async {
+                  await Navigator.pushNamed(context, '/home');
+                },
+                buttonText: "Ajouter à ma journée",
+              ),
+            ]),
+
+            const SizedBox(
+              height: 75,
+            ),
           ],
         ),
       ),

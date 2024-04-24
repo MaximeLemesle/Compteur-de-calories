@@ -37,7 +37,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
           _searchTimer!.cancel();
         }
         _searchTimer = Timer(
-          const Duration(milliseconds: 500),
+          const Duration(milliseconds: 100),
           () async {
             if (value.length >= 3) {
               widget.onChanged(value);

@@ -3,8 +3,9 @@ import 'package:compteur_cal/models/aliment.dart';
 import 'package:http/http.dart';
 
 class AlimentRepository {
+  static const String apiKey = 'f4460b241265456093440452d6fd0fb9';
   // static const String apiKey = 'a798d2cb4ee14472a43a0c8a05f88c26';
-  static const String apiKey = '4833a0b541654e488090a0ec4a354926';
+  // static const String apiKey = '4833a0b541654e488090a0ec4a354926';
 
   /// Appel des ingredients correspondants à une recherche
   Future<List<Aliment>> fetchAliments(String query) async {
