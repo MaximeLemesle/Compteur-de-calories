@@ -20,9 +20,9 @@ class _HomeState extends State<Home> {
   }
 
   static const List<Widget> _viewsOptions = <Widget>[
-    AccountView(),
-    CalorieView(),
     RecetteView(),
+    CalorieView(),
+    AccountView(),
   ];
 
   @override
