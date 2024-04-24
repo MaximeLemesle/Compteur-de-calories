@@ -101,7 +101,7 @@ class _CalorieViewState extends State<CalorieView> {
             /// Affichage calories
             Center(
               child: ProgressCircle(
-                titleText: totalCalories.toString(),
+                titleText: totalCalories,
                 subtitleText: 'calories',
                 percentage:
                     (100 * totalCalories.toDouble()) / userNeedsCalories,

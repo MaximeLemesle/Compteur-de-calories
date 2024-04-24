@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:countup/countup.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class ProgressCircle extends StatelessWidget {
-  final String titleText;
+  final int titleText;
   final String subtitleText;
   final double percentage;
 
@@ -24,8 +25,10 @@ class ProgressCircle extends StatelessWidget {
       center: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            titleText,
+          Countup(
+            begin: 0,
+            end: titleText.toDouble(),
+            duration: const Duration(seconds: 1),
             style: Theme.of(context).textTheme.displayLarge,
           ),
           Text(
