@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:compteur_cal/ui/screens/home.dart';
-import 'package:compteur_cal/ui/theme/app_theme.dart';
-import 'package:countup/countup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -56,17 +54,13 @@ class _SplashScreenState extends State<SplashScreen>
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          // gradient: LinearGradient(colors: [
-          //   Theme.of(context).colorScheme.primary,
-          //   Theme.of(context).colorScheme.tertiary
-          // ], begin: Alignment.topRight, end: Alignment.bottomLeft),
           color: Theme.of(context).colorScheme.onTertiary,
         ),
         child: Center(
           child: CircularPercentIndicator(
             radius: 100.0,
             lineWidth: 20.0,
-            percent: 1.0, // Utiliser la valeur de pourcentage
+            percent: 1.0,
             animation: true,
             animationDuration: 1000,
             circularStrokeCap: CircularStrokeCap.round,
@@ -81,13 +75,11 @@ class _SplashScreenState extends State<SplashScreen>
 
   Widget _buildAnimatedIcon() {
     return AnimatedOpacity(
-      opacity: _showCheckIcon
-          ? 1.0
-          : 0.0, // Définir l'opacité en fonction de _showCheckIcon
-      duration: const Duration(milliseconds: 500), // Durée de l'animation
+      opacity: _showCheckIcon ? 1.0 : 0.0,
+      duration: const Duration(milliseconds: 500),
       child: Icon(
-        Icons.check,
-        size: 50.0,
+        Icons.check_rounded,
+        size: 80.0,
         color: Theme.of(context).colorScheme.tertiary,
       ),
     );
