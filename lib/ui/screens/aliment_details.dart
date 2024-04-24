@@ -1,6 +1,6 @@
 import 'package:compteur_cal/models/aliment.dart';
+import 'package:compteur_cal/ui/widget/dropdown_custom.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class AlimentDetails extends StatefulWidget {
   const AlimentDetails({super.key});
@@ -67,9 +67,7 @@ class _AlimentDetailsState extends State<AlimentDetails> {
                   const SizedBox(height: 16),
 
                   /// Input pour choisir le poids de l'aliment
-                  const Text(
-                    'Faire l\'input pour le choix du poids de l\'aliment',
-                  ),
+                  const DropdownCustom(),
 
                   const SizedBox(height: 16),
                 ],

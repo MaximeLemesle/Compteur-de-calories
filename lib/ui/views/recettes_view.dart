@@ -1,7 +1,3 @@
-import 'package:compteur_cal/blocs/aliment_cubit.dart';
-import 'package:compteur_cal/models/aliment.dart';
-import 'package:compteur_cal/ui/widget/aliment_card.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:compteur_cal/ui/widget/button.dart';
 import 'package:flutter/material.dart';
 

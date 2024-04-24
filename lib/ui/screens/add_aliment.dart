@@ -1,9 +1,8 @@
 import 'package:compteur_cal/models/aliment.dart';
 import 'package:compteur_cal/repositories/aliment_repository.dart';
 import 'package:compteur_cal/ui/theme/app_theme.dart';
-import 'package:compteur_cal/ui/widget/aliment_card.dart';
 import 'package:compteur_cal/ui/widget/aliment_card_small.dart';
-import 'package:compteur_cal/ui/widget/text_field.dart';
+import 'package:compteur_cal/ui/widget/search_text_field.dart';
 import 'package:flutter/material.dart';
 
 class AddAliment extends StatefulWidget {
