@@ -1,4 +1,4 @@
-import 'package:compteur_cal/ui/views/repas_view.dart';
+import 'package:compteur_cal/ui/views/account_view.dart';
 import 'package:compteur_cal/ui/views/calories_view.dart';
 import 'package:compteur_cal/ui/views/recettes_view.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
   }
 
   static const List<Widget> _viewsOptions = <Widget>[
-    RepasView(),
+    AccountView(),
     CalorieView(),
     RecetteView(),
   ];
@@ -51,8 +51,8 @@ class _HomeState extends State<Home> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.data_saver_off),
-            label: 'Statistiques',
+            icon: Icon(Icons.account_circle_outlined),
+            label: 'Compte',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.whatshot_rounded),
