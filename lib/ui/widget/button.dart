@@ -4,12 +4,14 @@ class Button extends StatelessWidget {
   final VoidCallback onPressed;
   final String buttonText;
   final bool showIcon;
+  final bool isTitle;
 
   const Button({
     super.key,
     required this.onPressed,
     required this.buttonText,
     this.showIcon = true,
+    this.isTitle = false,
   });
 
   @override
@@ -35,8 +37,13 @@ class Button extends StatelessWidget {
           if (showIcon) const SizedBox(width: 8),
           Text(
             buttonText,
-            style: Theme.of(context).textTheme.labelSmall,
-          ),
+            style: isTitle
+                ? Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(color: Colors.white)
+                : Theme.of(context).textTheme.labelSmall,
+          )
         ],
       ),
     );

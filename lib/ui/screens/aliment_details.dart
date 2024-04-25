@@ -2,9 +2,7 @@ import 'package:compteur_cal/models/aliment.dart';
 import 'package:compteur_cal/ui/widget/aliment_data_card.dart';
 import 'package:compteur_cal/ui/widget/button.dart';
 import 'package:compteur_cal/ui/widget/dropdown_custom.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class AlimentDetails extends StatefulWidget {
   const AlimentDetails({super.key});
