@@ -9,7 +9,7 @@ class AccountView extends StatefulWidget {
 }
 
 class _AccountViewState extends State<AccountView> {
-  get dropdownCallback => null;
+  String? selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -66,20 +66,63 @@ class _AccountViewState extends State<AccountView> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    child: DropdownButton(
-                      value: 'test',
+                    child: DropdownButton<String>(
+                      value: selectedGender ?? 'Homme',
                       items: const [
                         DropdownMenuItem(value: 'Homme', child: Text('Homme')),
+                        DropdownMenuItem(value: 'Femme', child: Text('Femme')),
                       ],
-                      onChanged: dropdownCallback,
+                      onChanged: (String? value) {
+                        setState(() {
+                          selectedGender = value;
+                        });
+                      },
                       icon: Icon(
-                        Icons.speed_rounded,
+                        Icons.info_outline,
                         color: Theme.of(context).colorScheme.outlineVariant,
                       ),
                       isExpanded: true,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                           color: Theme.of(context).colorScheme.outlineVariant),
                       underline: Container(),
+                    ),
+                  ),
+
+                  /// Séparateur
+                  const SizedBox(
+                    height: 24,
+                  ),
+
+                  /// Label
+                  Text(
+                    'Quel est ton poids',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+
+                  const SizedBox(
+                    height: 12,
+                  ),
+
+                  /// Select
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    decoration: ShapeDecoration(
+                      color: Theme.of(context).colorScheme.background,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                            width: 1,
+                            color: Theme.of(context).colorScheme.outline),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        suffixIcon: Icon(
+                          Icons.search,
+                          color: Theme.of(context).colorScheme.secondary,
+                        ),
+                        labelText: 'test',
+                      ),
                     ),
                   ),
                 ],
