@@ -18,7 +18,7 @@ class ProgressCircle extends StatelessWidget {
     return CircularPercentIndicator(
       radius: 100.0,
       lineWidth: 20.0,
-      percent: percentage / 100,
+      percent: (percentage / 100) > 1 ? 1.0 : (percentage / 100),
       animation: true,
       animationDuration: 1000,
       circularStrokeCap: CircularStrokeCap.round,

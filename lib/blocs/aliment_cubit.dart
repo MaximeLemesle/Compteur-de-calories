@@ -9,35 +9,35 @@ class AlimentCubit extends Cubit<List<Aliment>> {
   /// Méthode pour charger la liste des aliments
   Future<void> loadAliments() async {
     emit([
-      Aliment(
-          id: 1,
-          name: 'Banane',
-          quantity: 1,
-          calories: 912,
-          glucides: 30,
-          proteins: 20,
-          fats: 10),
-      Aliment(
-          id: 2,
-          name: 'Poire',
-          quantity: 1,
-          calories: 130,
-          glucides: 30,
-          proteins: 20,
-          fats: 10),
-      Aliment(
-          id: 3,
-          name: 'Kiwi',
-          quantity: 1,
-          calories: 290,
-          glucides: 30,
-          proteins: 20,
-          fats: 10),
+      // Aliment(
+      //     id: 1,
+      //     name: 'Banane',
+      //     quantity: 1,
+      //     calories: 512,
+      //     glucides: 30,
+      //     proteins: 20,
+      //     fats: 10),
+      // Aliment(
+      //     id: 2,
+      //     name: 'Poire',
+      //     quantity: 1,
+      //     calories: 130,
+      //     glucides: 30,
+      //     proteins: 20,
+      //     fats: 10),
+      // Aliment(
+      //     id: 3,
+      //     name: 'Kiwi',
+      //     quantity: 1,
+      //     calories: 290,
+      //     glucides: 30,
+      //     proteins: 20,
+      //     fats: 10),
     ]);
   }
 
   /// Méthode pour ajouter un aliment
-  void addCompany(Aliment aliment) {
+  void addAliment(Aliment aliment) {
     emit([...state, aliment]);
   }
 }

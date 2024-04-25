@@ -39,7 +39,7 @@ class NutrimentsBox extends StatelessWidget {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: (124 * nutrimentsProgress).toString(),
+                        text: (124 * nutrimentsProgress).toStringAsFixed(2),
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       TextSpan(
@@ -56,7 +56,7 @@ class NutrimentsBox extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 12),
             child: LinearPercentIndicator(
               lineHeight: 10.0,
-              percent: nutrimentsProgress,
+              percent: nutrimentsProgress > 1 ? 1.0 : nutrimentsProgress,
               backgroundColor: nutrimentsColor.withOpacity(0.2),
               progressColor: nutrimentsColor,
               animation: true,
