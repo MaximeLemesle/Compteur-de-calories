@@ -37,13 +37,14 @@ class Aliment {
 
   factory Aliment.fromJson(Map<String, dynamic> json) {
     return Aliment(
-        id: json['id'],
-        name: json['name'],
-        quantity: json['quantity'],
-        calories: json['calories'],
-        glucides: json['glucides'],
-        proteins: json['proteins'],
-        fats: json['fats']);
+      id: json['id'],
+      name: json['name'],
+      quantity: json['quantity'] ?? 0,
+      calories: json['calories'] ?? 0,
+      glucides: json['glucides'] ?? 0,
+      proteins: json['proteins'] ?? 0,
+      fats: json['fats'] ?? 0,
+    );
   }
 
   Aliment({

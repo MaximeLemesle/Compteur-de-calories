@@ -149,6 +149,13 @@ class _AddAlimentState extends State<AddAliment> {
       ),
     );
   }
+
+  /// Vider les résultats de l'API en quittant la page
+  @override
+  void dispose() {
+    _aliments.clear();
+    super.dispose();
+  }
 }
 
 /// Ajout d'une majuscule au début d'une chaine de caractère

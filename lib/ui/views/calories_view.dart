@@ -136,7 +136,7 @@ class _CalorieViewState extends State<CalorieView> {
               height: 24,
             ),
 
-            /// Liste des aliments du petit déjeuner
+            /// Liste des aliments
             Container(
               padding: const EdgeInsets.all(12),
               decoration: ShapeDecoration(
@@ -151,7 +151,7 @@ class _CalorieViewState extends State<CalorieView> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Petit Déjeuner',
+                        'Liste des aliments',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
 
@@ -195,77 +195,77 @@ class _CalorieViewState extends State<CalorieView> {
               ),
             ),
 
-            const SizedBox(
-              height: 12,
-            ),
+            // const SizedBox(
+            //   height: 12,
+            // ),
 
-            /// Liste des aliments du déjeuner
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: ShapeDecoration(
-                color: Theme.of(context).colorScheme.surfaceVariant,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Déjeuner',
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
+            // /// Liste des aliments du déjeuner
+            // Container(
+            //   padding: const EdgeInsets.all(12),
+            //   decoration: ShapeDecoration(
+            //     color: Theme.of(context).colorScheme.surfaceVariant,
+            //     shape: RoundedRectangleBorder(
+            //       borderRadius: BorderRadius.circular(12),
+            //     ),
+            //   ),
+            //   child: Column(
+            //     children: [
+            //       Row(
+            //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //         children: [
+            //           Text(
+            //             'Déjeuner',
+            //             style: Theme.of(context).textTheme.titleMedium,
+            //           ),
 
-                      /// Button
-                      Button(
-                        onPressed: () async {
-                          await Navigator.pushNamed(context, '/add_aliment');
-                        },
-                        buttonText: 'Ajouter',
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            //           /// Button
+            //           Button(
+            //             onPressed: () async {
+            //               await Navigator.pushNamed(context, '/add_aliment');
+            //             },
+            //             buttonText: 'Ajouter',
+            //           ),
+            //         ],
+            //       ),
+            //     ],
+            //   ),
+            // ),
 
-            const SizedBox(
-              height: 12,
-            ),
+            // const SizedBox(
+            //   height: 12,
+            // ),
 
-            /// Liste des aliments du déjeuner
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: ShapeDecoration(
-                color: Theme.of(context).colorScheme.surfaceVariant,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Diner',
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
+            // /// Liste des aliments du déjeuner
+            // Container(
+            //   padding: const EdgeInsets.all(12),
+            //   decoration: ShapeDecoration(
+            //     color: Theme.of(context).colorScheme.surfaceVariant,
+            //     shape: RoundedRectangleBorder(
+            //       borderRadius: BorderRadius.circular(12),
+            //     ),
+            //   ),
+            //   child: Column(
+            //     children: [
+            //       Row(
+            //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //         children: [
+            //           Text(
+            //             'Diner',
+            //             style: Theme.of(context).textTheme.titleMedium,
+            //           ),
 
-                      /// Button
-                      Button(
-                        onPressed: () async {
-                          await Navigator.pushNamed(context, '/add_aliment');
-                        },
-                        buttonText: 'Ajouter',
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            //           /// Button
+            //           Button(
+            //             onPressed: () async {
+            //               await Navigator.pushNamed(context, '/add_aliment');
+            //             },
+            //             buttonText: 'Ajouter',
+            //           ),
+            //         ],
+            //       ),
+            //     ],
+            //   ),
+            // ),
           ],
         );
       },
