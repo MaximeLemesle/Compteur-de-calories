@@ -3,40 +3,26 @@ import 'package:compteur_cal/models/aliment.dart';
 import 'package:http/http.dart';
 
 class AlimentRepository {
-  /// Méthode pour récupérer une clé API
-  String _getApiKey() {
-    /// Liste des clés API
-    const List<String> apiKeys = [
-      'afee6413f0984ebdb3237a5b9873d511',
-      'a798d2cb4ee14472a43a0c8a05f88c26',
-      '4833a0b541654e488090a0ec4a354926',
-      'f4460b241265456093440452d6fd0fb9',
-      'afee6413f0984ebdb3237a5b9873d511',
-      '524cdc2fa8534450bba31b75eb1b0aca',
-      '4ed36466a131468082e2f835ecb9a421',
-      '5ef6776bce3d4436b1237e8b7b5d78fb',
-      'fc79de2479a643a18bc86e48bd7e3d0e',
-      '67aa3eeb23d74f8db6571ee4ab84eefe',
-      'bba0438bb2c04296aeca5fa18b70b680'
-    ];
+  final int _apiKeyIndex = 7;
 
-    int apiKeyIndex;
-    
-    print(apiKeyIndex);
-    if (apiKeyIndex >= apiKeys.length - 1) {
-      apiKeyIndex = 0;
-    } else {
-      apiKeyIndex++;
-    }
-    final String apiKey = apiKeys[apiKeyIndex];
-    print(apiKeyIndex);
-    return apiKey;
-  }
+  /// Liste des clés API
+  static const List<String> _apiKeys = [
+    'afee6413f0984ebdb3237a5b9873d511',
+    'a798d2cb4ee14472a43a0c8a05f88c26',
+    '4833a0b541654e488090a0ec4a354926',
+    'f4460b241265456093440452d6fd0fb9',
+    'afee6413f0984ebdb3237a5b9873d511',
+    '524cdc2fa8534450bba31b75eb1b0aca',
+    '4ed36466a131468082e2f835ecb9a421',
+    '5ef6776bce3d4436b1237e8b7b5d78fb',
+    'fc79de2479a643a18bc86e48bd7e3d0e',
+    '67aa3eeb23d74f8db6571ee4ab84eefe',
+    'bba0438bb2c04296aeca5fa18b70b680'
+  ];
 
   /// Appel des ingredients correspondants à une recherche
   Future<List<Aliment>> fetchAliments(String query) async {
-    final String apiKey = _getApiKey();
-
+    final String apiKey = _apiKeys[_apiKeyIndex];
     final Response response = await get(
       Uri.parse(
         'https://api.spoonacular.com/food/ingredients/search?query=$query&apiKey=$apiKey',
@@ -108,6 +94,3 @@ class AlimentRepository {
     }
   }
 }
-
-// Ninja API Nutrition - API Key: 3NTobbbWJqVKuJatB7NKWQ==eTdfGzImIR8lTYS2
-// Spoonacular - API Key: a798d2cb4ee14472a43a0c8a05f88c26
