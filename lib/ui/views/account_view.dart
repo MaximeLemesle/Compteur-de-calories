@@ -1,4 +1,5 @@
 import 'package:compteur_cal/ui/widget/button.dart';
+import 'package:compteur_cal/ui/widget/info_section.dart';
 import 'package:flutter/material.dart';
 
 class AccountView extends StatefulWidget {
@@ -9,7 +10,8 @@ class AccountView extends StatefulWidget {
 }
 
 class _AccountViewState extends State<AccountView> {
-  String? selectedGender;
+  String selectedGender = 'Homme';
+  String selectedGoal = 'Perte de poids';
 
   @override
   Widget build(BuildContext context) {
@@ -41,102 +43,142 @@ class _AccountViewState extends State<AccountView> {
           child: Column(
             children: [
               /// Choix du sexe
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  /// Label
-                  Text(
-                    'Quel est ton sexe',
-                    style: Theme.of(context).textTheme.titleMedium,
+              InfoSection(
+                inputLabel: "Quel est ton sexe",
+                inputType: DropdownButton<String>(
+                  value: selectedGender,
+                  items: const [
+                    DropdownMenuItem(value: 'Homme', child: Text('Homme')),
+                    DropdownMenuItem(value: 'Femme', child: Text('Femme')),
+                  ],
+                  onChanged: (value) {
+                    setState(() {
+                      selectedGender = value!;
+                    });
+                  },
+                  icon: Icon(
+                    Icons.info_outline,
+                    color: Theme.of(context).colorScheme.outlineVariant,
                   ),
-
-                  const SizedBox(
-                    height: 12,
-                  ),
-
-                  /// Select
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    decoration: ShapeDecoration(
-                      color: Theme.of(context).colorScheme.background,
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(
-                            width: 1,
-                            color: Theme.of(context).colorScheme.outline),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: DropdownButton<String>(
-                      value: selectedGender ?? 'Homme',
-                      items: const [
-                        DropdownMenuItem(value: 'Homme', child: Text('Homme')),
-                        DropdownMenuItem(value: 'Femme', child: Text('Femme')),
-                      ],
-                      onChanged: (String? value) {
-                        setState(() {
-                          selectedGender = value;
-                        });
-                      },
-                      icon: Icon(
-                        Icons.info_outline,
-                        color: Theme.of(context).colorScheme.outlineVariant,
-                      ),
-                      isExpanded: true,
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          color: Theme.of(context).colorScheme.outlineVariant),
-                      underline: Container(),
-                    ),
-                  ),
-
-                  /// Séparateur
-                  const SizedBox(
-                    height: 24,
-                  ),
-
-                  /// Label
-                  Text(
-                    'Quel est ton poids',
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-
-                  const SizedBox(
-                    height: 12,
-                  ),
-
-                  /// Select
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    decoration: ShapeDecoration(
-                      color: Theme.of(context).colorScheme.background,
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(
-                            width: 1,
-                            color: Theme.of(context).colorScheme.outline),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        suffixIcon: Icon(
-                          Icons.search,
-                          color: Theme.of(context).colorScheme.secondary,
-                        ),
-                        labelText: 'test',
-                      ),
-                    ),
-                  ),
-                ],
+                  isExpanded: true,
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      color: Theme.of(context).colorScheme.outlineVariant),
+                  underline: Container(),
+                ),
               ),
 
-              /// Espace
+              /// Séparateur
               const SizedBox(
                 height: 24,
-              )
+              ),
 
               /// Choix du poids
-              ///
+              InfoSection(
+                inputLabel: "Quel est ton poids",
+                inputType: TextField(
+                  decoration: InputDecoration(
+                    suffixIcon: Icon(
+                      Icons.search,
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
+                    labelText: 'Poids en kg',
+                    labelStyle: TextStyle(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .secondary, // Change the labelText color to red
+                    ),
+                  ),
+                ),
+              ),
+
+              /// Séparateur
+              const SizedBox(
+                height: 24,
+              ),
+
+              /// Choix de la taille
+              InfoSection(
+                inputLabel: "Quel est ta taille",
+                inputType: TextField(
+                  decoration: InputDecoration(
+                    suffixIcon: Icon(
+                      Icons.search,
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
+                    labelText: 'Taille en cm',
+                    labelStyle: TextStyle(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .secondary, // Change the labelText color to red
+                    ),
+                  ),
+                ),
+              ),
+
+              /// Séparateur
+              const SizedBox(
+                height: 24,
+              ),
+
+              /// Choix du poids
+              InfoSection(
+                inputLabel: "Quel est ton âge",
+                inputType: TextField(
+                  decoration: InputDecoration(
+                    suffixIcon: Icon(
+                      Icons.search,
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
+                    labelText: 'Âge en année',
+                    labelStyle: TextStyle(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .secondary, // Change the labelText color to red
+                    ),
+                  ),
+                ),
+              ),
+
+              /// Séparateur
+              const SizedBox(
+                height: 24,
+              ),
+
+              /// Choix de l'objectif
+              InfoSection(
+                inputLabel: "Quel est ton objectif",
+                inputType: DropdownButton<String>(
+                  value: selectedGoal,
+                  items: const [
+                    DropdownMenuItem(
+                        value: 'Perte de poids', child: Text('Perte de poids')),
+                    DropdownMenuItem(
+                        value: 'Prise de masse', child: Text('Prise de masse')),
+                    DropdownMenuItem(
+                        value: 'Maintient calorique',
+                        child: Text('Maintient calorique')),
+                  ],
+                  onChanged: (value) {
+                    setState(() {
+                      selectedGoal = value!;
+                    });
+                  },
+                  icon: Icon(
+                    Icons.info_outline,
+                    color: Theme.of(context).colorScheme.outlineVariant,
+                  ),
+                  isExpanded: true,
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      color: Theme.of(context).colorScheme.outlineVariant),
+                  underline: Container(),
+                ),
+              ),
             ],
           ),
+        ),
+
+        const SizedBox(
+          height: 50,
         ),
 
         Row(
@@ -151,10 +193,6 @@ class _AccountViewState extends State<AccountView> {
               isTitle: true,
             ),
           ],
-        ),
-
-        const SizedBox(
-          height: 75,
         ),
       ],
     );
