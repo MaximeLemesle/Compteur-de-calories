@@ -10,8 +10,80 @@ class AccountView extends StatefulWidget {
 }
 
 class _AccountViewState extends State<AccountView> {
-  String selectedGender = 'Homme';
-  String selectedGoal = 'Perte de poids';
+  Map<String, dynamic> getUserInformation() {
+    return <String, dynamic>{
+      'gender': gender,
+      'weight': weight,
+      'height': height,
+      'age': age,
+      'goal': goal,
+    };
+  }
+
+  /// User information
+  String gender = 'Homme';
+  double weight = 74.0;
+  int height = 174;
+  int age = 22;
+  String goal = 'Perte de poids';
+
+  /// Get user information
+  final TextEditingController _genderController = TextEditingController();
+  final TextEditingController _weightController = TextEditingController();
+  final TextEditingController _heightController = TextEditingController();
+  final TextEditingController _ageController = TextEditingController();
+  final TextEditingController _goalController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    /// Change gender
+    _genderController.text = gender;
+    _genderController.addListener(() {
+      setState(() {
+        gender = _genderController.text;
+      });
+    });
+
+    /// Change weight
+    _weightController.text = weight.toString();
+    _weightController.addListener(() {
+      setState(() {
+        weight = double.tryParse(_weightController.text) ?? weight;
+      });
+    });
+
+    /// Change height
+    _heightController.text = height.toString();
+    _heightController.addListener(() {
+      setState(() {
+        height = int.tryParse(_heightController.text) ?? height;
+      });
+    });
+
+    /// Change age
+    _ageController.text = age.toString();
+    _ageController.addListener(() {
+      setState(() {
+        age = int.tryParse(_ageController.text) ?? age;
+      });
+    });
+
+    /// Change goal
+    _goalController.text = goal;
+    _goalController.addListener(() {
+      setState(() {
+        goal = _goalController.text;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _weightController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,19 +113,22 @@ class _AccountViewState extends State<AccountView> {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 16),
           child: Column(
-            children: [
+            children: <Widget>[
               /// Choix du sexe
               InfoSection(
                 inputLabel: "Quel est ton sexe",
                 inputType: DropdownButton<String>(
-                  value: selectedGender,
-                  items: const [
-                    DropdownMenuItem(value: 'Homme', child: Text('Homme')),
-                    DropdownMenuItem(value: 'Femme', child: Text('Femme')),
+                  value: gender,
+                  items: const <DropdownMenuItem<String>>[
+                    DropdownMenuItem<String>(
+                        value: 'Homme', child: Text('Homme')),
+                    DropdownMenuItem<String>(
+                        value: 'Femme', child: Text('Femme')),
                   ],
-                  onChanged: (value) {
+                  onChanged: (String? value) {
                     setState(() {
-                      selectedGender = value!;
+                      gender = value!;
+                      _genderController.text = value;
                     });
                   },
                   icon: Icon(
@@ -76,9 +151,10 @@ class _AccountViewState extends State<AccountView> {
               InfoSection(
                 inputLabel: "Quel est ton poids",
                 inputType: TextField(
+                  controller: _weightController,
                   decoration: InputDecoration(
                     suffixIcon: Icon(
-                      Icons.search,
+                      Icons.speed_rounded,
                       color: Theme.of(context).colorScheme.secondary,
                     ),
                     labelText: 'Poids en kg',
@@ -100,6 +176,7 @@ class _AccountViewState extends State<AccountView> {
               InfoSection(
                 inputLabel: "Quel est ta taille",
                 inputType: TextField(
+                  controller: _heightController,
                   decoration: InputDecoration(
                     suffixIcon: Icon(
                       Icons.search,
@@ -120,10 +197,11 @@ class _AccountViewState extends State<AccountView> {
                 height: 24,
               ),
 
-              /// Choix du poids
+              /// Choix de l'âge
               InfoSection(
                 inputLabel: "Quel est ton âge",
                 inputType: TextField(
+                  controller: _ageController,
                   decoration: InputDecoration(
                     suffixIcon: Icon(
                       Icons.search,
@@ -148,19 +226,20 @@ class _AccountViewState extends State<AccountView> {
               InfoSection(
                 inputLabel: "Quel est ton objectif",
                 inputType: DropdownButton<String>(
-                  value: selectedGoal,
-                  items: const [
-                    DropdownMenuItem(
+                  value: goal,
+                  items: const <DropdownMenuItem<String>>[
+                    DropdownMenuItem<String>(
                         value: 'Perte de poids', child: Text('Perte de poids')),
-                    DropdownMenuItem(
+                    DropdownMenuItem<String>(
                         value: 'Prise de masse', child: Text('Prise de masse')),
-                    DropdownMenuItem(
+                    DropdownMenuItem<String>(
                         value: 'Maintient calorique',
                         child: Text('Maintient calorique')),
                   ],
-                  onChanged: (value) {
+                  onChanged: (String? value) {
                     setState(() {
-                      selectedGoal = value!;
+                      goal = value!;
+                      _goalController.text = value;
                     });
                   },
                   icon: Icon(
@@ -183,9 +262,11 @@ class _AccountViewState extends State<AccountView> {
 
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             Button(
               onPressed: () async {
+                Map<String, dynamic> userInfo = getUserInformation();
+                print(userInfo);
                 await Navigator.pushNamed(context, '/home');
               },
               buttonText: "Valider mes informations",
