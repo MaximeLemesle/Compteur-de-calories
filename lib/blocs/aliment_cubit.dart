@@ -6,18 +6,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class AlimentCubit extends Cubit<List<Aliment>> {
   final PreferencesRepository preferencesRepository;
 
-  /// Constructeur + initialisation du Cubit avec un tableau vide d'entreprise
-  AlimentCubit(this.preferencesRepository) : super([]);
+  /// Constructeur + initialisation du Cubit avec un tableau vide d'aliments
+  AlimentCubit(this.preferencesRepository) : super(<Aliment>[]);
 
   /// Méthode pour charger la liste des aliments
   Future<void> loadAliments() async {
-    final aliments = await preferencesRepository.loadAliments();
+    final List<Aliment>aliments = await preferencesRepository.loadAliments();
     emit(aliments);
   }
 
   /// Méthode pour ajouter un aliment
   void addAliment(Aliment aliment) {
-    emit([...state, aliment]);
+    emit(<Aliment>[...state, aliment]);
     preferencesRepository.saveAliments(state);
   }
 }

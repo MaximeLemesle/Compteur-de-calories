@@ -63,7 +63,7 @@ class _AlimentDetailsState extends State<AlimentDetails> {
               width: double.infinity,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   Text(
                     'Choisir le poids en grammes',
                     style: Theme.of(context).textTheme.titleMedium,
@@ -89,10 +89,10 @@ class _AlimentDetailsState extends State<AlimentDetails> {
 
             const Spacer(),
 
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
               Button(
                 onPressed: () async {
-                  final alimentCubit = context.read<AlimentCubit>();
+                  final AlimentCubit alimentCubit = context.read<AlimentCubit>();
                   alimentCubit.addAliment(aliment);
                   Navigator.pushNamed(context, '/home');
                 },

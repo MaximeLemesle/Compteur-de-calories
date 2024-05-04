@@ -1,4 +1,5 @@
 import 'package:compteur_cal/blocs/aliment_cubit.dart';
+import 'package:compteur_cal/blocs/user_cubit.dart';
 import 'package:compteur_cal/models/aliment.dart';
 import 'package:compteur_cal/ui/widget/aliment_card.dart';
 import 'package:compteur_cal/ui/widget/button.dart';
@@ -34,7 +35,7 @@ class _CalorieViewState extends State<CalorieView> {
         totalGlucides = 0;
         totalProteins = 0;
         totalFats = 0;
-        for (var aliment in state) {
+        for (Aliment aliment in state) {
           totalCalories += aliment.calories.toInt();
           totalGlucides += aliment.glucides;
           totalProteins += aliment.proteins;
@@ -42,27 +43,27 @@ class _CalorieViewState extends State<CalorieView> {
         }
 
         /// Liste des macronutriments
-        List<dynamic> nutriments = [
+        List<dynamic> nutriments = <dynamic>[
           // [ nutrimentsName, nutrimentsColor, nutrimentsProgress ]
-          [
+          <Object>[
             "Glucides",
             AppTheme.pinkRose,
             ((100 * totalGlucides) / (userNeeds * 100))
           ],
-          [
+          <Object>[
             "Protéines",
             AppTheme.skyBlue,
             ((100 * totalProteins) / (userNeeds * 100))
           ],
-          [
+          <Object>[
             "Lipides",
             AppTheme.mustardYellow,
             ((100 * totalFats) / (userNeeds * 100))
           ],
-          ["Autres", AppTheme.blueViolet, 0.0],
+          <Object>["Autres", AppTheme.blueViolet, 0.0],
         ];
         DateTime now = DateTime.now();
-        List<String> monthNames = [
+        List<String> monthNames = <String>[
           '',
           'Janvier',
           'Février',
@@ -82,12 +83,12 @@ class _CalorieViewState extends State<CalorieView> {
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
+          children: <Widget>[
             /// Affichage date du jour
             Container(
               padding: const EdgeInsets.all(24),
               child: Row(
-                children: [
+                children: <Widget>[
                   Expanded(
                     child: Text(
                       formattedDate,
@@ -146,10 +147,10 @@ class _CalorieViewState extends State<CalorieView> {
                 ),
               ),
               child: Column(
-                children: [
+                children: <Widget>[
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                    children: <Widget>[
                       Text(
                         'Liste des aliments',
                         style: Theme.of(context).textTheme.titleMedium,
@@ -170,11 +171,11 @@ class _CalorieViewState extends State<CalorieView> {
 
                   /// Aliment cards
                   BlocBuilder<AlimentCubit, List<Aliment>>(
-                    builder: (context, state) {
+                    builder: (context, List<Aliment> state) {
                       return Column(
-                        children: state.map((aliment) {
+                        children: state.map<Column>((Aliment aliment) {
                           return Column(
-                            children: [
+                            children: <Widget>[
                               AlimentCard(
                                 alimentName: aliment.name,
                                 colorBackground:
@@ -188,6 +189,39 @@ class _CalorieViewState extends State<CalorieView> {
                             ],
                           );
                         }).toList(),
+                      );
+                    },
+                  ),
+
+                  /// Test user info
+                  BlocBuilder<UserCubit, Map<String, dynamic>>(
+                    builder: (context, userInfoState) {
+                      final userInfo =
+                          userInfoState['userInfo'] as Map<String, dynamic>?;
+
+                      if (userInfo == null) {
+                        return const Text('User info not available');
+                      }
+
+                      final gender = userInfo['gender'] as String;
+                      final weight = userInfo['weight'] as double;
+                      final height = userInfo['height'] as int;
+                      final age = userInfo['age'] as int;
+                      final goal = userInfo['goal'] as String;
+
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'User Info:',
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
+                          Text('Gender: $gender'),
+                          Text('Weight: $weight kg'),
+                          Text('Height: $height cm'),
+                          Text('Age: $age years'),
+                          Text('Goal: $goal'),
+                        ],
                       );
                     },
                   ),

@@ -1,4 +1,5 @@
 import 'package:compteur_cal/blocs/aliment_cubit.dart';
+import 'package:compteur_cal/blocs/user_cubit.dart';
 import 'package:compteur_cal/repositories/preferences_repository.dart';
 import 'package:compteur_cal/ui/screens/add_aliment.dart';
 import 'package:compteur_cal/ui/screens/home.dart';
@@ -12,14 +13,22 @@ void main() {
   // Pour pouvoir utiliser les SharePreferences avant le runApp
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Instanciation du Cubit
+  // Instanciation des Cubit
   final AlimentCubit alimentCubit = AlimentCubit(PreferencesRepository());
+  final UserCubit userCubit = UserCubit();
 
   // Chargement des aliments
   alimentCubit.loadAliments();
 
-  runApp(BlocProvider<AlimentCubit>(
-    create: (_) => alimentCubit,
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider<AlimentCubit>(
+        create: (_) => alimentCubit,
+      ),
+      BlocProvider<UserCubit>(
+        create: (_) => userCubit,
+      ),
+    ],
     child: const MyApp(),
   ));
 }

@@ -1,6 +1,8 @@
+import 'package:compteur_cal/blocs/user_cubit.dart';
 import 'package:compteur_cal/ui/widget/button.dart';
 import 'package:compteur_cal/ui/widget/info_section.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AccountView extends StatefulWidget {
   const AccountView({super.key});
@@ -179,7 +181,7 @@ class _AccountViewState extends State<AccountView> {
                   controller: _heightController,
                   decoration: InputDecoration(
                     suffixIcon: Icon(
-                      Icons.search,
+                      Icons.height_rounded,
                       color: Theme.of(context).colorScheme.secondary,
                     ),
                     labelText: 'Taille en cm',
@@ -204,7 +206,7 @@ class _AccountViewState extends State<AccountView> {
                   controller: _ageController,
                   decoration: InputDecoration(
                     suffixIcon: Icon(
-                      Icons.search,
+                      Icons.cake_outlined,
                       color: Theme.of(context).colorScheme.secondary,
                     ),
                     labelText: 'Âge en année',
@@ -243,7 +245,7 @@ class _AccountViewState extends State<AccountView> {
                     });
                   },
                   icon: Icon(
-                    Icons.info_outline,
+                    Icons.gps_not_fixed_sharp,
                     color: Theme.of(context).colorScheme.outlineVariant,
                   ),
                   isExpanded: true,
@@ -266,6 +268,8 @@ class _AccountViewState extends State<AccountView> {
             Button(
               onPressed: () async {
                 Map<String, dynamic> userInfo = getUserInformation();
+                BlocProvider.of<UserCubit>(context)
+                    .updateUserInformation(userInfo);
                 print(userInfo);
                 await Navigator.pushNamed(context, '/home');
               },
