@@ -27,9 +27,9 @@ Création d'une application pour suivre les calories consommées dans la journé
 
 ### 🔧 Vérifications des dépendances
 
-  -> Dans le terminal exécuté la commande `$ flutter doctor` pour vérifer que les dépendances nécessaires sont bien installées.
+  -> Dans le terminal exécuté la commande `$ flutter doctor` pour vérifier que les dépendances nécessaires sont bien installées.
 
-  -> Mettre à jour les dépendances si des avertissement sont annoncées dans le terminal.
+  -> Mettre à jour les dépendances si des avertissements sont annoncés dans le terminal.
 
 ### 🚀 Lancer l'application
 
@@ -40,7 +40,7 @@ Création d'une application pour suivre les calories consommées dans la journé
 
 ### Ajout d'aliment
 
-  -> Grace à l'API Spoonacular, on peut rechercher (en anglais) et ajouter l'aliment de notre souhait dans notre liste d'aliment.
+  -> Grâce à l'API Spoonacular, on peut rechercher (en anglais) et ajouter l'aliment de notre souhait dans notre liste d'aliments.
   
 ### Calcul des calories consommées
 
@@ -48,7 +48,7 @@ Création d'une application pour suivre les calories consommées dans la journé
 
 ### Calcul des besoins caloriques
 
-  -> Dans la page compte, l'utilisateur peut indiquer son sexe, son poids, sa taille, son age, et son objectif sportif. Grâce à ces informations l'application calcul les besoins en macronutriments adapté à l'utilisateur.
+  -> Dans la page compte, l'utilisateur peut indiquer son sexe, son poids, sa taille, son âge, et son objectif sportif. Grâce à ces informations l'application calcul les besoins en macronutriments adaptés à l'utilisateur.
 
 ## 🤝 Contribution
 
@@ -64,6 +64,6 @@ Version: 3.3.4
 
 ## ⚙️ API
 
-Pour ce projet nous avons utiliser l'API "food-api" de Spoonacular.
+Pour ce projet, nous avons utilisé l'API "food-api" de Spoonacular.
 
   -> Voici un lien vers la doc de celle-ci : https://spoonacular.com/food-api/docs
