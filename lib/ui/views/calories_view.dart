@@ -1,5 +1,4 @@
 import 'package:compteur_cal/blocs/aliment_cubit.dart';
-import 'package:compteur_cal/blocs/user_cubit.dart';
 import 'package:compteur_cal/models/aliment.dart';
 import 'package:compteur_cal/ui/widget/aliment_card.dart';
 import 'package:compteur_cal/ui/widget/button.dart';
@@ -192,114 +191,9 @@ class _CalorieViewState extends State<CalorieView> {
                       );
                     },
                   ),
-
-                  /// Test user info
-                  BlocBuilder<UserCubit, Map<String, dynamic>>(
-                    builder: (context, userInfoState) {
-                      final userInfo =
-                          userInfoState['userInfo'] as Map<String, dynamic>?;
-
-                      if (userInfo == null) {
-                        return const Text('User info not available');
-                      }
-
-                      final gender = userInfo['gender'] as String;
-                      final weight = userInfo['weight'] as double;
-                      final height = userInfo['height'] as int;
-                      final age = userInfo['age'] as int;
-                      final goal = userInfo['goal'] as String;
-
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'User Info:',
-                            style: Theme.of(context).textTheme.titleMedium,
-                          ),
-                          Text('Gender: $gender'),
-                          Text('Weight: $weight kg'),
-                          Text('Height: $height cm'),
-                          Text('Age: $age years'),
-                          Text('Goal: $goal'),
-                        ],
-                      );
-                    },
-                  ),
                 ],
               ),
             ),
-
-            // const SizedBox(
-            //   height: 12,
-            // ),
-
-            // /// Liste des aliments du déjeuner
-            // Container(
-            //   padding: const EdgeInsets.all(12),
-            //   decoration: ShapeDecoration(
-            //     color: Theme.of(context).colorScheme.surfaceVariant,
-            //     shape: RoundedRectangleBorder(
-            //       borderRadius: BorderRadius.circular(12),
-            //     ),
-            //   ),
-            //   child: Column(
-            //     children: [
-            //       Row(
-            //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //         children: [
-            //           Text(
-            //             'Déjeuner',
-            //             style: Theme.of(context).textTheme.titleMedium,
-            //           ),
-
-            //           /// Button
-            //           Button(
-            //             onPressed: () async {
-            //               await Navigator.pushNamed(context, '/add_aliment');
-            //             },
-            //             buttonText: 'Ajouter',
-            //           ),
-            //         ],
-            //       ),
-            //     ],
-            //   ),
-            // ),
-
-            // const SizedBox(
-            //   height: 12,
-            // ),
-
-            // /// Liste des aliments du déjeuner
-            // Container(
-            //   padding: const EdgeInsets.all(12),
-            //   decoration: ShapeDecoration(
-            //     color: Theme.of(context).colorScheme.surfaceVariant,
-            //     shape: RoundedRectangleBorder(
-            //       borderRadius: BorderRadius.circular(12),
-            //     ),
-            //   ),
-            //   child: Column(
-            //     children: [
-            //       Row(
-            //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //         children: [
-            //           Text(
-            //             'Diner',
-            //             style: Theme.of(context).textTheme.titleMedium,
-            //           ),
-
-            //           /// Button
-            //           Button(
-            //             onPressed: () async {
-            //               await Navigator.pushNamed(context, '/add_aliment');
-            //             },
-            //             buttonText: 'Ajouter',
-            //           ),
-            //         ],
-            //       ),
-            //     ],
-            //   ),
-            // ),
           ],
         );
       },
