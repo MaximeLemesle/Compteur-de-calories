@@ -17,8 +17,6 @@ class CalorieView extends StatefulWidget {
 }
 
 class _CalorieViewState extends State<CalorieView> {
-  int userNeeds = 124;
-
   // Déclaration des variables pour stocker les totaux
   int totalCalories = 0;
   double totalGlucides = 0;
@@ -27,11 +25,14 @@ class _CalorieViewState extends State<CalorieView> {
 
   @override
   Widget build(BuildContext context) {
-    final userCubit = BlocProvider.of<UserCubit>(context);
-    final userNeedsCalories = userCubit.calculateCaloriesNeeds().toInt();
+    final UserCubit userCubit = BlocProvider.of<UserCubit>(context);
+    final int userNeedsCalories = userCubit.calculateCaloriesNeeds().toInt();
+    final int userNeedsGlucides = userCubit.calculateGlucidesNeeds().toInt();
+    final int userNeedsProteins = userCubit.calculateProteinsNeeds().toInt();
+    final int userNeedsFats = userCubit.calculateFatsNeeds().toInt();
 
     return BlocBuilder<AlimentCubit, List<Aliment>>(
-      builder: (context, state) {
+      builder: (BuildContext context, List<Aliment> state) {
         // Mise à jour des totaux
         totalCalories = 0;
         totalGlucides = 0;
@@ -46,23 +47,31 @@ class _CalorieViewState extends State<CalorieView> {
 
         /// Liste des macronutriments
         List<dynamic> nutriments = <dynamic>[
-          // [ nutrimentsName, nutrimentsColor, nutrimentsProgress ]
+          // [ nutrimentsName, nutrimentsColor, nutrimentsProgress, nutrimentsTotal ]
+          <Object>[
+            "Calories",
+            AppTheme.tealGreen,
+            ((100 * totalCalories) / (userNeedsCalories * 100)),
+            userNeedsCalories,
+          ],
           <Object>[
             "Glucides",
             AppTheme.pinkRose,
-            ((100 * totalGlucides) / (userNeeds * 100))
+            ((100 * totalGlucides) / (userNeedsGlucides * 100)),
+            userNeedsGlucides,
           ],
           <Object>[
             "Protéines",
             AppTheme.skyBlue,
-            ((100 * totalProteins) / (userNeeds * 100))
+            ((100 * totalProteins) / (userNeedsProteins * 100)),
+            userNeedsProteins,
           ],
           <Object>[
             "Lipides",
             AppTheme.mustardYellow,
-            ((100 * totalFats) / (userNeeds * 100))
+            ((100 * totalFats) / (userNeedsFats * 100)),
+            userNeedsFats,
           ],
-          <Object>["Autres", AppTheme.blueViolet, 0.0],
         ];
         DateTime now = DateTime.now();
         List<String> monthNames = <String>[
@@ -128,10 +137,10 @@ class _CalorieViewState extends State<CalorieView> {
               ),
               itemBuilder: (BuildContext context, int index) {
                 return NutrimentsBox(
-                  nutrimentsName: nutriments[index][0] as String,
-                  nutrimentsColor: nutriments[index][1] as Color,
-                  nutrimentsProgress: nutriments[index][2] as double,
-                );
+                    nutrimentsName: nutriments[index][0] as String,
+                    nutrimentsColor: nutriments[index][1] as Color,
+                    nutrimentsProgress: nutriments[index][2] as double,
+                    nutrimentsTotal: nutriments[index][3] as int);
               },
             ),
 
@@ -173,7 +182,7 @@ class _CalorieViewState extends State<CalorieView> {
 
                   /// Aliment cards
                   BlocBuilder<AlimentCubit, List<Aliment>>(
-                    builder: (context, List<Aliment> state) {
+                    builder: (BuildContext context, List<Aliment> state) {
                       return Column(
                         children: state.map<Column>((Aliment aliment) {
                           return Column(

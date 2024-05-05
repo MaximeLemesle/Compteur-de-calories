@@ -5,12 +5,14 @@ class NutrimentsBox extends StatelessWidget {
   final String nutrimentsName;
   final Color nutrimentsColor;
   final double nutrimentsProgress;
+  final int nutrimentsTotal;
 
   const NutrimentsBox({
     super.key,
     required this.nutrimentsName,
     required this.nutrimentsColor,
     required this.nutrimentsProgress,
+    required this.nutrimentsTotal,
   });
 
   @override
@@ -39,11 +41,12 @@ class NutrimentsBox extends StatelessWidget {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: (124 * nutrimentsProgress).toStringAsFixed(2),
+                        text: (nutrimentsTotal * nutrimentsProgress)
+                            .toStringAsFixed(2),
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       TextSpan(
-                        text: '/124',
+                        text: '/$nutrimentsTotal',
                         style: Theme.of(context).textTheme.labelMedium,
                       ),
                     ],
