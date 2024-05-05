@@ -12,11 +12,29 @@ Création d'une application pour suivre les calories consommées dans la journé
 - 🧰 [Fonctionnalités](#fonctionnalités)
 - 🤝 [Contribution](#contribution)
 - 🛠️ [Langages & Frameworks](#langages--frameworks)
+- ⚙️ [API](#api)
 
 
 ## 🚀 Installation
 
-🚧 Pas de stress ! Le projet est encore en développement. Attendez-vous à quelques petits dégâts de chantier. Mais comme on dit, Rome ne s'est pas construite en un jour !
+### 📂 Téléchargement du dossier
+
+  -> Récupérez le dossier zip depuis GitHub.
+  
+  -> Créez un nouveau dossier avec le fichier zip dedans.
+  
+  -> Dézipper le fichier et ouvrez le nouveau dossier dans votre éditeur de code.
+
+### 🔧 Vérifications des dépendances
+
+  -> Dans le terminal exécuté la commande `$ flutter doctor` pour vérifer que les dépendances nécessaires sont bien installées.
+
+  -> Mettre à jour les dépendances si des avertissement sont annoncées dans le terminal.
+
+### 🚀 Lancer l'application
+
+  -> Dans le terminal rentrez la commande `$ flutter run` pour démarrer l'application.
+
 
 ## 🧰 Fonctionnalités
 
@@ -43,3 +61,9 @@ Réaliser par [*Tom*](https://github.com/TomCartier) et [*Maxime*](https://githu
 Version: 3.19.6
 <img src="https://img.shields.io/badge/Code-Dart-336791?style=flat&logo=dart&logoColor=white" />
 Version: 3.3.4
+
+## ⚙️ API
+
+Pour ce projet nous avons utiliser l'API "food-api" de Spoonacular.
+
+  -> Voici un lien vers la doc de celle-ci : https://spoonacular.com/food-api/docs
