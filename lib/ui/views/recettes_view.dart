@@ -46,20 +46,18 @@ class _RecetteViewState extends State<RecetteView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Button(
-              onPressed: () async {
-                await Navigator.pushNamed(context, '/add_meal');
-              },
+              onPressed: () {},
               buttonText: 'Ajouter',
             ),
           ],
         ),
-        const Column(
+        Column(
           children: [
-            Image(
+            const Image(
               image: AssetImage('assets/img/arrow_top.png'),
               height: 80,
             ),
-            SizedBox(
+            const SizedBox(
               width: 358,
               child: Text.rich(
                 TextSpan(
@@ -113,34 +111,21 @@ class _RecetteViewState extends State<RecetteView> {
                 textAlign: TextAlign.center,
               ),
             ),
-            Image(
+            const Image(
               image: AssetImage('assets/img/arrow_bottom.png'),
               height: 80,
             ),
+
+            /// Page incomplète
+            Center(
+              child: Text(
+                'Cette page n\'est pas encore fini',
+                style: Theme.of(context).textTheme.titleMedium,
+                textAlign: TextAlign.center,
+              ),
+            )
           ],
         ),
-        // BlocBuilder<AlimentCubit, List<Aliment>>(
-        //   builder: (context, state) {
-        //     return Column(
-        //       children: state.map((aliment) {
-        //         return const Column(
-        //           children: [
-        //             AlimentCard(
-        //               alimentName: aliment.name,
-        //               colorBackground:
-        //                   Theme.of(context).colorScheme.surfaceVariant,
-        //               calories: aliment.calories,
-        //               glucides: aliment.glucides,
-        //               proteins: aliment.proteins,
-        //               fats: aliment.fats,
-        //             ),
-        //             const SizedBox(height: 16),
-        //           ],
-        //         );
-        //       }).toList(),
-        //     );
-        //   },
-        // ),
       ],
     );
   }
