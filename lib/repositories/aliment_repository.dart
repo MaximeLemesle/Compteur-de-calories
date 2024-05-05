@@ -3,7 +3,7 @@ import 'package:compteur_cal/models/aliment.dart';
 import 'package:http/http.dart';
 
 class AlimentRepository {
-  final int _apiKeyIndex = 7;
+  final int _apiKeyIndex = 8;
 
   /// Liste des clés API
   static const List<String> _apiKeys = [
@@ -17,7 +17,7 @@ class AlimentRepository {
     '5ef6776bce3d4436b1237e8b7b5d78fb',
     'fc79de2479a643a18bc86e48bd7e3d0e',
     '67aa3eeb23d74f8db6571ee4ab84eefe',
-    'bba0438bb2c04296aeca5fa18b70b680'
+    'bba0438bb2c04296aeca5fa18b70b680',
   ];
 
   /// Appel des ingredients correspondants à une recherche

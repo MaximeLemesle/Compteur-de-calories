@@ -195,6 +195,11 @@ class _CalorieViewState extends State<CalorieView> {
                                 glucides: aliment.glucides,
                                 proteins: aliment.proteins,
                                 fats: aliment.fats,
+                                onDelete: () {
+                                  context
+                                      .read<AlimentCubit>()
+                                      .deleteAliment(aliment);
+                                },
                               ),
                               const SizedBox(height: 16),
                             ],

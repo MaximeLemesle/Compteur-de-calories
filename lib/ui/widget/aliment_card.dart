@@ -9,6 +9,7 @@ class AlimentCard extends StatefulWidget {
   final double glucides;
   final double proteins;
   final double fats;
+  final Function() onDelete; // Fonction de suppression
 
   const AlimentCard({
     super.key,
@@ -18,6 +19,7 @@ class AlimentCard extends StatefulWidget {
     required this.glucides,
     required this.proteins,
     required this.fats,
+    required this.onDelete,
   });
 
   @override
@@ -61,18 +63,28 @@ class _AlimentCardState extends State<AlimentCard> {
                     )
                   ],
                 ),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      isMacroVisible = !isMacroVisible;
-                    });
-                  },
-                  child: Icon(
-                    isMacroVisible
-                        ? Icons.keyboard_arrow_up_rounded
-                        : Icons.keyboard_arrow_down_rounded,
-                    color: Theme.of(context).colorScheme.outline,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.delete),
+                      onPressed: widget
+                          .onDelete, // Appel de la fonction de suppression
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isMacroVisible = !isMacroVisible;
+                        });
+                      },
+                      child: Icon(
+                        isMacroVisible
+                            ? Icons.keyboard_arrow_up_rounded
+                            : Icons.keyboard_arrow_down_rounded,
+                        color: Theme.of(context).colorScheme.outline,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
