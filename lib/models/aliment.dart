@@ -32,6 +32,11 @@ class Aliment {
     return {
       'id': id,
       'name': name,
+      'quantity': quantity,
+      'calories': calories,
+      'glucides': glucides,
+      'proteins': proteins,
+      'fats': fats,
     };
   }
 

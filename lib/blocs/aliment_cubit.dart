@@ -11,7 +11,7 @@ class AlimentCubit extends Cubit<List<Aliment>> {
 
   /// Méthode pour charger la liste des aliments
   Future<void> loadAliments() async {
-    final List<Aliment>aliments = await preferencesRepository.loadAliments();
+    final List<Aliment> aliments = await preferencesRepository.loadAliments();
     emit(aliments);
   }
 
@@ -19,5 +19,12 @@ class AlimentCubit extends Cubit<List<Aliment>> {
   void addAliment(Aliment aliment) {
     emit(<Aliment>[...state, aliment]);
     preferencesRepository.saveAliments(state);
+  }
+
+  /// Méthode pour supprimer un aliment de la liste
+  void deleteAliment(Aliment aliment) {
+    final updatedList = state.where((a) => a.id != aliment.id).toList();
+    emit(updatedList);
+    preferencesRepository.saveAliments(updatedList);
   }
 }
