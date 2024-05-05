@@ -9,7 +9,7 @@ class AlimentCard extends StatefulWidget {
   final double glucides;
   final double proteins;
   final double fats;
-  final Function() onDelete; // Fonction de suppression
+  final Function() onDelete;
 
   const AlimentCard({
     super.key,
@@ -41,36 +41,40 @@ class _AlimentCardState extends State<AlimentCard> {
         ),
       ),
       child: Column(
-        children: [
+        children: <Widget>[
           SizedBox(
             width: double.infinity,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      widget.alimentName,
-                      style: Theme.of(context).textTheme.titleSmall,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    IconButton(
+                      icon: const Icon(Icons.delete),
+                      onPressed: widget.onDelete,
+                      color: Colors.red[800],
                     ),
-                    const SizedBox(
-                      height: 6,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          widget.alimentName,
+                          style: Theme.of(context).textTheme.titleSmall,
+                        ),
+                        const SizedBox(
+                          height: 6,
+                        ),
+                        Text(
+                          '${widget.calories}kcal',
+                          style: Theme.of(context).textTheme.labelMedium,
+                        )
+                      ],
                     ),
-                    Text(
-                      '${widget.calories}kcal',
-                      style: Theme.of(context).textTheme.labelMedium,
-                    )
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.delete),
-                      onPressed: widget
-                          .onDelete, // Appel de la fonction de suppression
-                    ),
+                  children: <Widget>[
                     GestureDetector(
                       onTap: () {
                         setState(() {
@@ -92,7 +96,7 @@ class _AlimentCardState extends State<AlimentCard> {
           Container(
             child: isMacroVisible
                 ? Column(
-                    children: [
+                    children: <Widget>[
                       const SizedBox(height: 12),
 
                       /// Séparateur
@@ -111,7 +115,7 @@ class _AlimentCardState extends State<AlimentCard> {
                         padding: const EdgeInsets.symmetric(horizontal: 6),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: <Widget>[
                             MacronutrimentsInformations(
                               macronutriments: 'Calories',
                               value: '${widget.calories}kcal',

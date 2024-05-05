@@ -36,9 +36,11 @@ class UserCubit extends Cubit<User> {
     final user = state;
     double baseCal;
     if (user.gender.toLowerCase() == 'homme') {
-      baseCal = 10 * user.weight + 6.25 * user.height - 5 * user.age + 5;
+      baseCal =
+          (10 * user.weight + 6.25 * user.height - 5 * user.age + 5) * 1.4;
     } else {
-      baseCal = 10 * user.weight + 6.25 * user.height - 5 * user.age - 161;
+      baseCal =
+          (10 * user.weight + 6.25 * user.height - 5 * user.age - 161) * 1.4;
     }
 
     /// Ajouter ou enlever des calories selon l'objectif
@@ -51,18 +53,17 @@ class UserCubit extends Cubit<User> {
     return baseCal;
   }
 
-
   /// Calcul des glucides
   double calculateGlucidesNeeds() {
     final calories = calculateCaloriesNeeds();
     final goal = state.goal.toLowerCase();
 
     if (goal == 'perte de poids') {
-      return (calories * 0.35) / 4;
-    } else if (goal == 'prise de masse') {
-      return (calories * 0.5) / 4;
-    } else {
       return (calories * 0.45) / 4;
+    } else if (goal == 'prise de masse') {
+      return (calories * 0.55) / 4;
+    } else {
+      return (calories * 0.5) / 4;
     }
   }
 
@@ -72,11 +73,11 @@ class UserCubit extends Cubit<User> {
     final goal = state.goal.toLowerCase();
 
     if (goal == 'perte de poids') {
-      return (calories * 0.35) / 4;
+      return (calories * 0.3) / 4;
     } else if (goal == 'prise de masse') {
-      return (calories * 0.4) / 4;
+      return (calories * 0.3) / 4;
     } else {
-      return (calories * 0.25) / 4;
+      return (calories * 0.3) / 4;
     }
   }
 
@@ -86,18 +87,17 @@ class UserCubit extends Cubit<User> {
     final goal = state.goal.toLowerCase();
 
     if (goal == 'perte de poids') {
-      return (calories * 0.30) / 9;
+      return (calories * 0.25) / 9;
     } else if (goal == 'prise de masse') {
-      return (calories * 0.10) / 9;
+      return (calories * 0.15) / 9;
     } else {
-      return (calories * 0.20) / 9;
+      return (calories * 0.2) / 9;
     }
   }
 
-
   /// Getters pour acceder aux données de l'utilisateur
   double get caloriesNeeds => calculateCaloriesNeeds();
-    double get carbohydratesNeeds => calculateGlucidesNeeds();
+  double get carbohydratesNeeds => calculateGlucidesNeeds();
   double get proteinsNeeds => calculateProteinsNeeds();
   double get fatsNeeds => calculateFatsNeeds();
   String get gender => state.gender;
