@@ -31,6 +31,29 @@ class UserCubit extends Cubit<User> {
     ));
   }
 
+  /// Calcul calories
+  double calculateCaloriesNeeds() {
+    final user = state;
+    double baseCal;
+    if (user.gender.toLowerCase() == 'homme') {
+      baseCal = 10 * user.weight + 6.25 * user.height - 5 * user.age + 5;
+    } else {
+      baseCal = 10 * user.weight + 6.25 * user.height - 5 * user.age - 161;
+    }
+
+    /// Ajouter ou enlever des calories selon l'objectif
+    if (user.goal.toLowerCase() == 'prise de masse') {
+      baseCal += 200;
+    } else if (user.goal.toLowerCase() == 'perte de poids') {
+      baseCal -= 200;
+    }
+
+    return baseCal;
+  }
+
+
+  /// Getters pour acceder aux données de l'utilisateur
+  double get caloriesNeeds => calculateCaloriesNeeds();
   String get gender => state.gender;
   int get weight => state.weight;
   int get height => state.height;

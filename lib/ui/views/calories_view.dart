@@ -1,4 +1,5 @@
 import 'package:compteur_cal/blocs/aliment_cubit.dart';
+import 'package:compteur_cal/blocs/user_cubit.dart';
 import 'package:compteur_cal/models/aliment.dart';
 import 'package:compteur_cal/ui/widget/aliment_card.dart';
 import 'package:compteur_cal/ui/widget/button.dart';
@@ -17,7 +18,6 @@ class CalorieView extends StatefulWidget {
 
 class _CalorieViewState extends State<CalorieView> {
   int userNeeds = 124;
-  int userNeedsCalories = 2000.toInt();
 
   // Déclaration des variables pour stocker les totaux
   int totalCalories = 0;
@@ -27,6 +27,9 @@ class _CalorieViewState extends State<CalorieView> {
 
   @override
   Widget build(BuildContext context) {
+    final userCubit = BlocProvider.of<UserCubit>(context);
+    final userNeedsCalories = userCubit.calculateCaloriesNeeds().toInt();
+
     return BlocBuilder<AlimentCubit, List<Aliment>>(
       builder: (context, state) {
         // Mise à jour des totaux

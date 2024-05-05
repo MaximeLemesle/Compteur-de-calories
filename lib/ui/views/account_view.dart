@@ -91,7 +91,9 @@ class _AccountViewState extends State<AccountView> {
                         ),
                       ],
                       onChanged: (String? value) {
-                        _genderController.text = value!;
+                        setState(() {
+                          _genderController.text = value!;
+                        });
                       },
                       icon: Icon(
                         Icons.info_outline,
@@ -201,7 +203,9 @@ class _AccountViewState extends State<AccountView> {
                             child: Text('Maintient calorique')),
                       ],
                       onChanged: (String? value) {
-                        _goalController.text = value!;
+                        setState(() {
+                          _goalController.text = value!;
+                        });
                       },
                       icon: Icon(
                         Icons.gps_not_fixed_sharp,
